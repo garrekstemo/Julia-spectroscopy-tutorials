@@ -10,14 +10,10 @@ rename!(data, ["wavenumber", "transmittance"])
 
 # Make a basic figure to view the data in a separate window
 
-f = Figure()
-
-display(f)
-ax = Axis(f[1, 1])
+fig = Figure()
+ax = Axis(fig[1, 1])
 lines!(data.wavenumber, data.transmittance)
-
-# xlims!(,)
-
+fig
 
 # Calculations stop at a double # if you press Alt+Return.
 # Press Shift+Return to evaluate a single line.
@@ -44,10 +40,6 @@ lines!(data.wavenumber, data.transmittance)
 
 Δν = ν2 - ν1
 
-x = 2
-
-r = x^3 + 4
-
 ##
 
 #############################
@@ -64,10 +56,7 @@ r = x^3 + 4
 Write a lorentzian function here to fit a single peak
 in your spectrum.
 """
-function lorentzian(x, p)
-    A, x0, Γ = p
-    return @. A^2 + x0 / (2*Γ)
-end
+function lorentzian()
 
 # lines!(ax, fitdata.wavenumber, lorentzian(fitdata.wavenumber, []))
 
@@ -75,18 +64,21 @@ end
 
 # Change the upper and lower bound to trim the data to one peak for fitting.
 
-lowerbound = 2400
-upperbound = 2500
+lowerbound = 1800
+upperbound = 1950
 
 fitdata = data[(data.wavenumber .> lowerbound) .& (data.wavenumber .< upperbound), :]
 
-describe(fitdata)
+
+fig = Figure()
+ax = Axis(fig[1, 1])
+lines!(data.wavenumber, data.transmittance)
 
 fitdata.wavenumber
 
 p0 = []  # initial guess
 fit = curve_fit(lorentzian, fitdata.wavenumber, fitdata.transmittance, p0)
 
-coef(fit)
-
-lines!(ax, fitdata.wavenumber, lorentzian(fitdata.wavenumber, coef(fit)))
+fit.param
+lines!(ax, fitdata.wavenumber, lorentzian(fitdata.wavenumber, fit.param), color = :orangered)
+fig

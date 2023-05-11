@@ -4,6 +4,16 @@
 using Markdown
 using InteractiveUtils
 
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+end
+
 # ╔═╡ a1f8b5f6-f69c-11ec-0fc6-3d2e3785ff63
 using CSV, DataFrames, GLMakie, Optim, PlutoUI
 
@@ -28,7 +38,40 @@ First, let's make some fake data.
 """
 
 # ╔═╡ e479760b-8d5a-4ab5-85f7-cddd289ab872
-xdata = -30:0.4:10
+xdata = -30:1:10
+
+# ╔═╡ e8b2611c-d7dc-455a-bc3f-44efd4685de0
+length(xdata)
+
+# ╔═╡ 4f6afe5d-aa55-4c5b-bb3d-f5d002217c9a
+m = [1, 1, 2, 3, 5, 8, 13, 21 ]
+
+# ╔═╡ 885b7dd5-9d33-4729-99ce-5c86f6466196
+r = 1:10
+
+# ╔═╡ 67bd348a-db4f-480e-aa04-0083391a02d9
+for i in r
+	println(i)
+end
+
+# ╔═╡ 1a1ce3ee-9289-4003-b396-3efa259cbf4d
+
+
+# ╔═╡ f4bdecdd-7bd6-44b0-8fe3-83eeee44af7d
+length(m)
+
+# ╔═╡ e3f360dd-90ca-4f6c-9a4d-7b6bc12477d6
+for i in m
+	println(i)
+end
+
+# ╔═╡ a8661281-ae2c-4124-92e0-a81f0a5ba8bb
+for i in 1:length(m)
+	println(i)
+end
+
+# ╔═╡ d85afb09-9517-4c79-9f43-6ed572dffdb3
+
 
 # ╔═╡ a50003b5-0c9f-4bed-be95-7669f92a9049
 md"""Our decaying exponential function is
@@ -44,8 +87,14 @@ y(x, p) = p[1] .* exp.(- p[2] .* x) .+ p[3]
 md"""Let's use this exponential function to make our y-data and add some random noise.
 """
 
+# ╔═╡ 21598cdf-863c-41e8-b0ce-0521d64f9112
+@bind τ PlutoUI.Slider(1:10)
+
+# ╔═╡ d90ab325-4c7a-45df-95b4-89c9e1d6d9f3
+τ
+
 # ╔═╡ 644ca751-90cd-419b-9025-94e170706bbc
-ydata = y(xdata, [0.08, 1/5, 0.3]) .+ 1.2 * randn(length(xdata))
+ydata = y(xdata, [0.08, 1/τ, 0.3]) .+ 1.2 * randn(length(xdata))
 
 # ╔═╡ 33ab1b2a-cfc1-42a8-adfc-fd481524103e
 lines(xdata, ydata)
@@ -119,6 +168,9 @@ begin
 	
 	text!(ax, annotation, position = (-15, 15))
 end
+
+# ╔═╡ 43775040-207c-4755-a98f-7cedcf8c0333
+
 
 # ╔═╡ 96868a51-26d1-4c24-9581-9ead44b7d4d1
 md"""
@@ -1578,9 +1630,20 @@ version = "3.5.0+0"
 # ╠═d5fa3fbe-4951-4fa8-8855-98037123e919
 # ╟─28dc7da7-c9d2-4943-b9d3-5b863a4632b3
 # ╠═e479760b-8d5a-4ab5-85f7-cddd289ab872
+# ╠═e8b2611c-d7dc-455a-bc3f-44efd4685de0
+# ╠═4f6afe5d-aa55-4c5b-bb3d-f5d002217c9a
+# ╠═885b7dd5-9d33-4729-99ce-5c86f6466196
+# ╠═67bd348a-db4f-480e-aa04-0083391a02d9
+# ╠═1a1ce3ee-9289-4003-b396-3efa259cbf4d
+# ╠═f4bdecdd-7bd6-44b0-8fe3-83eeee44af7d
+# ╠═e3f360dd-90ca-4f6c-9a4d-7b6bc12477d6
+# ╠═a8661281-ae2c-4124-92e0-a81f0a5ba8bb
+# ╠═d85afb09-9517-4c79-9f43-6ed572dffdb3
 # ╟─a50003b5-0c9f-4bed-be95-7669f92a9049
 # ╠═370c347f-8308-4156-8baa-df6d48628f75
 # ╟─271b73b8-88c6-48b5-be9b-62ab31bb4b92
+# ╠═d90ab325-4c7a-45df-95b4-89c9e1d6d9f3
+# ╠═21598cdf-863c-41e8-b0ce-0521d64f9112
 # ╠═644ca751-90cd-419b-9025-94e170706bbc
 # ╠═33ab1b2a-cfc1-42a8-adfc-fd481524103e
 # ╟─9967acf7-a796-4d7e-a628-332905e9e211
@@ -1591,6 +1654,7 @@ version = "3.5.0+0"
 # ╠═61e6ae6a-1327-4c46-85fc-05dc12e1d1fe
 # ╟─3d7d355a-fe6e-4ae4-9027-1c761b904298
 # ╠═acc8037a-1ec6-414b-85df-1c4405edd214
+# ╠═43775040-207c-4755-a98f-7cedcf8c0333
 # ╟─96868a51-26d1-4c24-9581-9ead44b7d4d1
 # ╟─2959a2b0-d2fa-40d0-ba66-77761fe9f683
 # ╠═5a05da01-b615-46db-a8a5-fedb1f8e8a44
