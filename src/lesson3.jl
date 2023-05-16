@@ -3,20 +3,35 @@ using CSV
 using DataFrames
 using LsqFit
 
+datapath = abspath("data/vacant_cavity.csv")
+
 # Load data and rename the two columns
-data = DataFrame(CSV.File(abspath("data/vacant_cavity.csv"), skipto = 20, footerskip = 37))
+# Skip the header and footer metadata to load just the raw data.
+data = DataFrame(CSV.File(datapath, skipto = 20, footerskip = 37))
 rename!(data, ["wavenumber", "transmittance"])
 
-
 # Make a basic figure to view the data in a separate window
-
+GLMakie.activate!(inline=false)
 fig = Figure()
 ax = Axis(fig[1, 1])
 lines!(data.wavenumber, data.transmittance)
-fig
 
-# Calculations stop at a double # if you press Alt+Return.
-# Press Shift+Return to evaluate a single line.
+
+##### Pro tip! #####
+
+# Calculations stop at a double ## if you press alt+return.
+# Press shift+return to evaluate a single line.
+
+# evaluate the next two lines, one at a time, by pressing shift+return
+x = rand(5)
+y = sin.(x)
+
+
+# here
+# |
+# | 
+# |
+# v
 
 ##
 
@@ -35,8 +50,8 @@ fig
 # L = cavity length
 # Δν = ν2 - ν1
 
-ν1 = 1000
-ν2 = 1500
+ν1 = 0
+ν2 = 0
 
 Δν = ν2 - ν1
 
@@ -46,19 +61,17 @@ fig
 #           Step 2          #
 #############################
 
-# Find the center of two peaks using a fitting function
-# to get a more accurate fit of the peak center.
+# Find the centers of two peaks using a fitting function.
 # Then calculate the Q-factor for your cavity.
-
-
+# Finally, plot your data and two fits below.
 
 """
 Write a lorentzian function here to fit a single peak
 in your spectrum.
 """
 function lorentzian()
-
-# lines!(ax, fitdata.wavenumber, lorentzian(fitdata.wavenumber, []))
+    # Your code here
+end
 
 ##
 
@@ -67,18 +80,11 @@ function lorentzian()
 lowerbound = 1800
 upperbound = 1950
 
-fitdata = data[(data.wavenumber .> lowerbound) .& (data.wavenumber .< upperbound), :]
-
-
-fig = Figure()
-ax = Axis(fig[1, 1])
-lines!(data.wavenumber, data.transmittance)
-
-fitdata.wavenumber
+# fitdata = filter()
 
 p0 = []  # initial guess
-fit = curve_fit(lorentzian, fitdata.wavenumber, fitdata.transmittance, p0)
+# fit = curve_fit()
 
-fit.param
-lines!(ax, fitdata.wavenumber, lorentzian(fitdata.wavenumber, fit.param), color = :orangered)
-fig
+fig = Figure()
+
+# Make your figure here
