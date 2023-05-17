@@ -1,6 +1,6 @@
 # Lesson 1: Julia Basics and Fitting
 
-Open the file in the `src` directory titled `lesson 1.jl` and follow along.
+Open the file in the `lessons` directory titled `lesson 1.jl` and follow along.
 
 Goals:
 1. Learn the basics of Julia
@@ -20,9 +20,10 @@ functions in julia: a quick one-line function, or a
 traditional multi-line function. The quick syntax feature
 makes functions look like math equations. You can type unicode
 characters in Julia, so you can even include Greek symbols. 
-You can do this in VS Code by typing `\tau` and then pressing
-`tab`. This will insert the unicode character `τ`.
+For example, you can write `τ` by typing `\tau` and then pressing
+`tab`. You can even perform operations on emoji, if you so choose.
 
+Here's that exponential decay function using quick syntax:
 ```
 f(x, τ) = exp(-x/τ)
 ``` 
@@ -57,17 +58,20 @@ a y-offset of `y0 = 0.1`. But if we just try
 `y = f(x, 2.0, 3.0, 0.1)`, we will get an error.
 Can you see why? Stop for a minute and think about what the code is doing.
 
+## Intermission! Come back in a few minutes.
+
+## Vectorization and dot syntax
 
 The error is because we are trying to pass an array `x` to a function
-that expects a single number. Traditionally, we would use a `for` loop
+that expects a single value. Traditionally, we would use a `for` loop
 to iterate through each element of `x` and calculate `y`.
 Many technical-computing languages (Matlab, Python/Numpy, or R) have a feature called
 **vectorization**, where you can operate on a whole array.
 In Julia, there is a convenient notation to do this using [dot syntax](https://docs.julialang.org/en/v1/manual/functions/#man-vectorized).
 
-For example:
+Let's try an example in [the Julia REPL](https://docs.julialang.org/en/v1/stdlib/REPL/):
 ```
-julia> g(x) 4x + 1
+julia> g(x) = 4x + 1
 
 julia> a = [1.0, 2.0, 3.0]
 
@@ -85,26 +89,36 @@ use the parameters defined earlier.
 xdata = 0:0.1:20
 ydata = f.(xdata, 6.0, 3.0, 0.1) .+ 0.2 * randn(length(xdata))
 ```
+A more convenient way to do this would be to use the `@.` macro, which distributes the dot syntax to all operations in the expression.
 
-The function `randn` generates random numbers from a normal
+```
+@. ydata = f(xdata, 6.0, 3.0, 0.1) + 0.2 * randn(length(xdata))
+```
+
+The function `randn()` generates random numbers from a normal
 distribution with mean 0 and standard deviation 1. The `length`
 function returns the number of elements in an array, and we
 use it here to make an array of random numbers the same length
 as `xdata`.
 
-Next we perform the fit. We will use the `curve_fit` function
-from the `LsqFit` package. The `curve_fit` function takes
-three arguments: the fitting function, the x data, and the y data.
-You can find the tutorial for the `LsqFit` package [here](https://github.com/JuliaNLSolvers/LsqFit.jl)
+## Fit and plot
+
+Next we perform the fit. We will use the `curve_fit()` function
+from the `LsqFit` package. `curve_fit()` takes
+four arguments: the fitting function, the x data, the y data, and an initial guess  for the parameters.
+You can find the tutorial for the `LsqFit` package [here](https://github.com/JuliaNLSolvers/LsqFit.jl).
 
 Finally, we use the plotting package Makie to generate
 a plot of our data and the fit. First we must create a blank `Figure()` object.
 The `Figure` can hold a grid of plots, buttons, sliders, labels,
 and other things. We will just use a single plot for now.
+
 Next we draw an empty `Axis` object on the `Figure` that takes the
-first column and first row. Then, we make a `scatter` plot
-of the data and a `line` plot of the fit. Finally, we add
+first row and first column. Then, we make a `scatter!` plot
+of the data and a `lines!` plot of the fit. Finally, we add
 a bit of `text!` that displays the fit results and a legend.
+(The exclamation mark `!` means that the function modifies
+the object in place. This is a convention in Julia.)
 Type `display(fig)` anywhere or `fig` at the end to display the plot.
 
 ```

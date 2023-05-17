@@ -1,7 +1,6 @@
 # Julia Spectroscopy Tutorials
 
-These tutorials are the data analysis part of a series to learn
-basic optics and spectroscopy.
+These tutorials are the data analysis part of a series to learn basic optics and spectroscopy.
 The data collected at the end of the optics tutorials will now be used
 to develop skills in programming and data analysis.
 We use the [Julia programming language](https://julialang.org) with Visual Studio Code. 
@@ -36,6 +35,12 @@ Then there is a three-part FTIR tutorial where students do the following
 2. Fill the cavity with a solvent and measure the refractive index.
 
 3. Fill the cavity with a liquid with a resonant molecular mode. Students measure the mode splitting using a double Lorentzian function.
+
+
+## Input and Output
+
+Save all raw data to the `data` directory.
+Output, such as processed data and figures, should be saved to the `output` directory.
 
 
 ## Why Julia

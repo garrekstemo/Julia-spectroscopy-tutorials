@@ -15,7 +15,7 @@ GLMakie.activate!(inline=false)
 fig = Figure()
 ax = Axis(fig[1, 1])
 lines!(data.wavenumber, data.transmittance)
-
+fig
 
 ##### Pro tip! #####
 
@@ -88,3 +88,5 @@ p0 = []  # initial guess
 fig = Figure()
 
 # Make your figure here
+
+fig

@@ -32,3 +32,4 @@ lines!(ax, xdata, model(xdata, fit.param), color = :orangered, label = "fit")
 text!("τ = $(τ)\nA = $(A)", position = (12, 4.5))
 
 axislegend(ax)
+fig

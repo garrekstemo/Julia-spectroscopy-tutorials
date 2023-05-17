@@ -2,7 +2,6 @@ using CSV
 using DataFrames
 using GLMakie
 using LsqFit
-using Statistics
 
 
 # Load data into a DataFrame and rename x and y columns
@@ -37,3 +36,4 @@ fig = Figure()
 
 # Your code here
 
+fig
