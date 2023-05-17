@@ -59,8 +59,8 @@ where $\Delta\nu$ is the frequency difference between the two peaks, $n$ is the 
 ## Step 2
 
 Finding the peak frequency by eye is fine for rough approximations, but ideally we want to fit the data to a model.
-A cavity mode has a Lorentzian line shape.
-Look up a Lorentzian model for a molecular mode and write a Julia function based on it.
+What line shape does a cavity mode have?
+Look up a model for a molecular mode and write a Julia function based on it.
 Next, we need to select a range of data that includes only two peaks.
 We can do this in a few ways.
 Perhaps the simplest is to `filter()` the data based on a lower and upper bound. The `filter()` function is general, and not unique to the DataFrames package.

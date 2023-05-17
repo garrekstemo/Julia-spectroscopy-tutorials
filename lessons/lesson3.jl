@@ -66,10 +66,10 @@ y = sin.(x)
 # Finally, plot your data and two fits below.
 
 """
-Write a lorentzian function here to fit a single peak
+Write a function here to fit a single peak
 in your spectrum.
 """
-function lorentzian()
+function myfunction()
     # Your code here
 end
 

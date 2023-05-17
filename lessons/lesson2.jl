@@ -16,14 +16,14 @@ for filename in filenames
     push!(data, raw)
 end
 
-# Write a gaussian function for fitting here
-function gauss(t, p)
+# Write a fitting function
+function myfunction(t, p)
 end
 
 # Average your three data sets here
 # avg = 
 
-# Now fit your gaussian function to the averaged data.
+# Now fit your function to the averaged data.
 # Use what you learned in Lesson 1,
 # then calculate the pulse width from the fit parameters.
 # Look up how pulse width is defined for femtosecond lasers.
