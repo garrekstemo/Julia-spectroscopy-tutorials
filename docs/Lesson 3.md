@@ -59,7 +59,7 @@ where $\Delta\nu$ is the frequency difference between the two peaks, $n$ is the 
 ## Step 2
 
 Finding the peak frequency by eye is fine for rough approximations, but ideally we want to fit the data to a model.
-What line shape does a cavity mode have?
+What line shape does a cavity mode have? Explain your choice of fitting function.
 Look up a model for a molecular mode and write a Julia function based on it.
 Next, we need to select a range of data that includes only two peaks.
 We can do this in a few ways.

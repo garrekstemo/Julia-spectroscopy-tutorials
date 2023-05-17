@@ -9,6 +9,7 @@ Now you will analyze that data and calculate the pulse width.
 The lesson file is mostly empty, but there are some comments to guide you.
 Decide on a function, then use it to fit your data, as in Lesson 1, and extract the pulse width.
 You will need to look up how pulse width is related to the function parameters.
+Make sure you explain your choice of fitting function.
 
 ## Break your problem into small parts
 
