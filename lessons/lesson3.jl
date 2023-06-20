@@ -3,12 +3,32 @@ using CSV
 using DataFrames
 using LsqFit
 
-datapath = abspath("data/vacant_cavity.csv")
+dir = "data/"  #  データに保存されているディレクトリ
+filename = "vacant_cavity.csv"　　#　データファイルの名前
+datapath = normpath(dir * filename)  # データファイルのパス
+isfile(datapath)
+
 
 # Load data and rename the two columns
 # Skip the header and footer metadata to load just the raw data.
 data = DataFrame(CSV.File(datapath, skipto = 20, footerskip = 37))
 rename!(data, ["wavenumber", "transmittance"])
+
+e = 5
+
+##
+
+a = 1
+b = 2
+c = a + b
+
+e
+d
+##
+d = 4
+
+
+
 
 # Make a basic figure to view the data in a separate window
 GLMakie.activate!(inline=false)
