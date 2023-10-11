@@ -69,7 +69,7 @@ Here is an example of filtering a `DataFrame` by row value:
 ```
 using DataFrames
 
-df = DataFrame(x=1:100, y=sin.(x))
+df = DataFrame(x=1:10, y=sin.(1:10))
 
 newdf = filter(row -> row.x > 10, df)
 ```

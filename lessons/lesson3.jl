@@ -2,6 +2,7 @@ using GLMakie
 using CSV
 using DataFrames
 using LsqFit
+GLMakie.activate!(inline=false)
 
 dir = "data/"  #  データに保存されているディレクトリ
 filename = "vacant_cavity.csv"　　#　データファイルの名前
@@ -31,12 +32,15 @@ d = 4
 
 
 # Make a basic figure to view the data in a separate window
-GLMakie.activate!(inline=false)
+
 fig = Figure()
 ax = Axis(fig[1, 1])
 lines!(data.wavenumber, data.transmittance)
 fig
 
+save("output/vacant cavity.png", fig)
+
+##
 ##### Pro tip! #####
 
 # Calculations stop at a double ## if you press alt+return.
