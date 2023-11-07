@@ -39,9 +39,13 @@ end
 LP = polariton_branches(θsrad, E_v, E_0, n, Ω, 1) .+ 1 * randn(length(θsrad))
 UP = polariton_branches(θsrad, E_v, E_0, n, Ω, 2) .+ 3.5 * randn(length(θsrad))
 
-fig, ax, l = scatter(θs, LP)
+fig = Figure()
+ax = Axis(fig[1, 1])
+scatter!(θs, LP)
 scatter!(θs, UP)
+
 fig
+
 
 ##
 # open("data/generated_polariton_data.csv", "w") do io
