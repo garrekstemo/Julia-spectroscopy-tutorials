@@ -2,7 +2,6 @@ using GLMakie
 using CSV
 using DataFrames
 using LsqFit
-GLMakie.activate!(inline=false)
 
 dir = "data/"  #  データに保存されているディレクトリ
 filename = "vacant_cavity.csv"　　#　データファイルの名前

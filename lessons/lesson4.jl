@@ -1,5 +1,4 @@
 using CSV, DataFrames, GLMakie, Optim
-GLMakie.activate!(inline=false)
 
 
 #############################

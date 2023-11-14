@@ -30,7 +30,6 @@ end
 
 
 # Create a figure to plot your data and fit
-GLMakie.activate!(inline=false) # makes a separate window
 
 fig = Figure()
 
