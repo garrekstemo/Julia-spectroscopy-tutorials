@@ -1,42 +1,29 @@
-# using GLMakie
+using GLMakie
 using Optim
-using LsqFit
 
+xdata = 0:1:100
+y(x, p) = p[1] .* exp.(- x / p[2]) .+ p[3]
+ydata = y(xdata, [0.8, 15, 0.2]) .+ 0.05 * randn(length(xdata))
 
-f0(x) = x^2
-f1(x) = x^3
-f2(x) = 1 + x + x^2 + x^3
-
-funcs = [f0, f1, f2]
-
-for f in funcs
-    println(f.(1:10))
-end
-
-xdata = -30:1:10
-y(x, p) = p[1] .* exp.(- p[2] .* x) .+ p[3]
-ydata = y(xdata, [0.08, 1/20, 0.3]) .+ 1.2 * randn(length(xdata))
-
-function square_error(p, X, Y)
+function square_error(p, f, X, Y)
 	error = 0.0
-
 	for i in eachindex(X)
-		
-		model_i = y(X[i], p)
+		model_i = f(X[i], p)
 		error += (Y[i] - model_i)^2
 	end
 	return error
 end
 
 
-p0 = [1.0, 0.1, 0.0]
-result = optimize(b -> square_error(b, xdata, ydata), p0, extended_trace = true)
-
+p0 = [2, 10, 0.0]
+result = optimize(b -> square_error(b, y, xdata, ydata), p0)
+result
 params = Optim.minimizer(result)
 
-summary(result)
+fig = Figure()
+ax = Axis(fig[1, 1])
+scatter!(ax, xdata, ydata, color = :red)
+lines!(xdata, y(xdata, p0))
+lines!(xdata, y(xdata, params), color = :black)
 
-Optim.converged(result)
-
-
-Optim.hessian!(square_error, params)
+fig
