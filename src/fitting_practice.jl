@@ -16,7 +16,6 @@ ydata = y(xdata, [0.8, 15, 0.2]) .+ 0.03 * randn(length(xdata))
 
 p0 = [2, 10, 0.0]
 result = optimize(b -> square_error(b, y, xdata, ydata), p0)
-result
 params = Optim.minimizer(result)
 
 fig = Figure()
