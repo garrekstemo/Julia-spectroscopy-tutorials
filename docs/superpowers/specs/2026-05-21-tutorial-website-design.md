@@ -155,10 +155,12 @@ The tutorial site should feel like it belongs to the same family as [garrek.org]
 |---|---|---|
 | Body + headings | **Libre Baskerville** | `Georgia, "Times New Roman", serif` |
 | Sidebar nav, buttons, callout labels | **Courier Prime** | `"Courier New", Courier, monospace` |
-| Code blocks + inline code | Menlo | `Monaco, monospace` (system) |
+| Code blocks + inline code | **Courier Prime Code** | `"Courier Prime", "Courier New", monospace` |
 | Figcaptions | Helvetica | `Arial, sans-serif` (system) |
 
-Lyon Text (used on the personal site) is a trial font — substituting **Libre Baskerville** here for licensing reasons. The fonts live in `public/fonts/` and are loaded via `@font-face` in `src/styles/custom.css`.
+Lyon Text (used on the personal site) is a trial font — substituting **Libre Baskerville** here for licensing reasons. **Courier Prime Code** is the code-optimized variant of Courier Prime (same designer, OFL-licensed). It's not yet in garrek.org's fonts folder; needs to be downloaded from [quoteunquoteapps.com/courierprime](https://quoteunquoteapps.com/courierprime/) and dropped into `public/fonts/Courier-Prime-Code/`.
+
+All fonts live in `public/fonts/` and are loaded via `@font-face` in `src/styles/custom.css`.
 
 ### Color palette (light + dark, via `prefers-color-scheme`)
 
@@ -173,8 +175,9 @@ Lifted directly from `garrek-org/src/css/styles.css`:
 | Link hover underline | `#e05a3a` (terracotta) | `#e8734f` (terracotta) |
 | Sidebar nav text | `#1478d4` (blue) | `#5aafe6` (light blue) |
 | Sidebar nav hover | `#e05a3a` | `#e8734f` |
-| Code block bg | `#f8f9fa` | `#b0b0b0` (light card on dark page) |
-| Code block text | `#15252b` | `#000` |
+| Code block bg | `#fafafa` (very light gray) | `#1e3036` (slightly lifted from page bg) |
+| Code block text | inherits via Shiki theme | inherits via Shiki theme |
+| Code block border | `#e5e5e5` | `#2a3d44` |
 | `<hr>` rule | `#2090e0` | `#2090e0` |
 
 These are wired into Starlight via CSS custom properties in `custom.css` — Starlight exposes its design tokens as `--sl-color-*` variables which we override.
@@ -234,7 +237,15 @@ Header layout (sticky top, border-bottom rule, title left + repo link right) can
 
 ### Code blocks
 
-Garrek.org disables syntax highlighting. The tutorial needs it for Julia. Choice: use Shiki's `github-light` / `github-dark` themes — muted, readable, doesn't overwhelm the serif body. Code block container uses garrek.org's styling: `1px` border, `10px` border-radius, `1em 1.5em` padding, Menlo at `1em`/`1.6em`.
+Garrek.org disables syntax highlighting; the tutorial needs it for Julia. Since you haven't yet designed code blocks for the personal site, the goal here is **minimal default styling that doesn't fight the serif body** — a quiet container with a quiet syntax theme. This treatment can later inform code blocks on the personal site (or diverge — both decisions stay open).
+
+- **Syntax theme:** Shiki's `min-light` / `min-dark` (Sarah Drasner's minimal themes — barely-there color, mostly weight and italic for emphasis). If those read too quiet during build review, fall back to `github-light` / `github-dark`.
+- **Font:** Courier Prime Code at `0.95em`, `line-height: 1.6`
+- **Container:** `1px` solid border in the muted gray tokens above, `8px` border-radius, `1em 1.25em` padding, light-gray background tint (`#fafafa` light / `#1e3036` dark)
+- **Inline code:** Courier Prime Code, no background, slightly tinted text color in dark mode for readability
+- **Copy button:** Starlight default — small icon in the top-right corner; restyled to match the muted palette
+
+Net effect: code blocks read as "quietly distinct from prose," not as decorated boxes. Easy to lift back to garrek.org later as a small CSS addition.
 
 ### Out-of-scope styling deviations (intentional)
 
@@ -284,7 +295,9 @@ Site URL: `https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/`.
 ## Migration plan (preview — full plan written separately)
 
 1. Initialize Astro + Starlight: `npm create astro@latest -- --template starlight`, configure `astro.config.mjs`
-2. Copy fonts from `garrek-org/src/assets/fonts/Libre-Baskerville/` and `Courier-Prime/` into `public/fonts/`
+2. Set up fonts in `public/fonts/`:
+   - Copy `garrek-org/src/assets/fonts/Libre-Baskerville/` and `Courier-Prime/`
+   - Download Courier Prime Code from [quoteunquoteapps.com/courierprime](https://quoteunquoteapps.com/courierprime/) and place under `public/fonts/Courier-Prime-Code/`
 3. Write `src/styles/custom.css`: `@font-face` declarations, Starlight CSS variable overrides for colors/widths/fonts, link hover rules, h1–h3 scale
 4. Build component overrides: `src/components/SiteTitle.astro` and `src/components/PageTitle.astro`
 5. Move EN chapters: rename `chapters/01. Introduction.md` → `src/content/docs/en/chapters/01-introduction.md`, add `title:` frontmatter, leave body alone
