@@ -1,0 +1,35 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const { locale } = Astro.locals.starlightRoute;
+const isJa = locale === 'ja';
+const year = new Date().getFullYear();
+const licenseLabel = isJa ? 'CC BY 4.0 のもとで公開' : 'Licensed under CC BY 4.0';
+---
+<Default />
+<div class="site-footer">
+  © 2022–{year} Garrek Stemo · <a
+    href="https://creativecommons.org/licenses/by/4.0/"
+    rel="license"
+  >{licenseLabel}</a>
+</div>
+
+<style>
+  .site-footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sl-color-hairline);
+    font-size: 0.85em;
+    color: var(--sl-color-gray-3);
+    text-align: right;
+  }
+  .site-footer a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--sl-color-gray-4);
+    text-underline-offset: 0.18em;
+  }
+  .site-footer a:hover {
+    color: var(--sl-color-text);
+  }
+</style>
