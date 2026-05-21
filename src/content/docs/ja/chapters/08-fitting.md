@@ -92,11 +92,15 @@ $$
 
 このハミルトニアンを対角化すると、アッパー/ロワーポラリトンのエネルギーが得られます。
 
-$$\omega_\pm(\theta) = \frac{1}{2}\left[ \omega_c(\theta) + \omega_v \pm \sqrt{\left(\omega_c(\theta) - \omega_v\right)^2 + \Omega_R^2}\right]$$
+$$
+\omega_\pm(\theta) = \frac{1}{2}\left[ \omega_c(\theta) + \omega_v \pm \sqrt{\left(\omega_c(\theta) - \omega_v\right)^2 + \Omega_R^2}\right]
+$$
 
 分子振動遷移は $\omega_v$、Rabi 分裂の大きさは $\Omega_R$ です。キャビティモードの周波数 $\omega_c$ は次の式で与えられます。
 
-$$\omega_c(\theta) = \omega_c(0)\left(1 - \frac{\sin^2\theta}{n^2} \right)^{-1/2}$$
+$$
+\omega_c(\theta) = \omega_c(0)\left(1 - \frac{\sin^2\theta}{n^2} \right)^{-1/2}
+$$
 
 ここで $\theta$ はキャビティ表面の法線に対するビームの角度、$n$ はキャビティ内媒質の屈折率です。
 

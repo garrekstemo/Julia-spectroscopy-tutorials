@@ -93,11 +93,15 @@ $$
 
 Diagonalizing the Hamiltonian gives the upper and lower polariton energies:
 
-$$\omega_\pm(\theta) = \frac{1}{2}\left[ \omega_c(\theta) + \omega_v \pm \sqrt{\left(\omega_c(\theta) - \omega_v\right)^2 + \Omega_R^2}\right]$$
+$$
+\omega_\pm(\theta) = \frac{1}{2}\left[ \omega_c(\theta) + \omega_v \pm \sqrt{\left(\omega_c(\theta) - \omega_v\right)^2 + \Omega_R^2}\right]
+$$
 
 The molecular vibrational transition is $\omega_v$, and the Rabi splitting magnitude is $\Omega_R$. The cavity mode frequency $\omega_c$ is given by the equation
 
-$$\omega_c(\theta) = \omega_c(0)\left(1 - \frac{\sin^2\theta}{n^2} \right)^{-1/2}$$
+$$
+\omega_c(\theta) = \omega_c(0)\left(1 - \frac{\sin^2\theta}{n^2} \right)^{-1/2}
+$$
 
 where $\theta$ is the beam angle with respect to the normal of the cavity surface and $n$ is the refractive index of the intracavity medium.
 
