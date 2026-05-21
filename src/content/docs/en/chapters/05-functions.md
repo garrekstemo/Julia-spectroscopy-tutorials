@@ -121,10 +121,79 @@ This is allowed because of Julia's "multiple dispatch" functionality and is a ke
     ```
 
 
+## Keyword arguments and default values
+Function arguments can have default values. Provide them in the signature with `=`:
+
+```julia
+greet(name, greeting="Hello") = println("$greeting, $name!")
+greet("Alice")            # Hello, Alice!
+greet("Bob", "Hi there")  # Hi there, Bob!
+```
+
+You can also define *keyword arguments*, which are passed by name and separated from positional arguments by a semicolon:
+
+```julia
+function gaussian(x; μ=0.0, σ=1.0)
+    return exp(-(x - μ)^2 / (2σ^2)) / (σ * sqrt(2π))
+end
+
+gaussian(0.5)              # uses default μ and σ
+gaussian(0.5; μ=1.0)       # override μ, keep σ default
+gaussian(0.5; μ=1.0, σ=2)  # override both
+```
+
+Keyword arguments make function calls self-documenting at the call site, which helps when a function has many parameters.
+
+
+## Anonymous functions
+Sometimes you want a one-off function without giving it a name. The syntax is `args -> body`:
+
+```julia
+julia> (x -> x^2)(5)
+25
+
+julia> map(x -> 2x + 1, 1:5)
+5-element Vector{Int64}:
+  3
+  5
+  7
+  9
+ 11
+```
+
+Anonymous functions are most useful as arguments to higher-order functions like `map`, `filter`, and `sort`.
+
+
+## Broadcasting
+Most Julia functions take a single value. To apply a function to every element of an array, add a dot after the function name:
+
+```julia
+julia> square(x) = x^2
+square (generic function with 1 method)
+
+julia> square.([1, 2, 3, 4, 5])
+5-element Vector{Int64}:
+  1
+  4
+  9
+ 16
+ 25
+```
+
+This is called *broadcasting* and works for any function — built-in or user-defined. It is more concise than writing a loop and extends to higher dimensions.
+
+```julia
+xs = 0.0:0.1:1.0
+ys = sin.(2π .* xs)  # apply sin to each x
+```
+
+Broadcasting is how you'll evaluate model functions over a grid of points later in the tutorial.
+
+
 ## Problems
 1. Calculate the energy in eV for photons of wavelengths 620 nm, 310 nm, and 1240 nm.
     ```julia
-    function wavelength_to_ev(wavelength_in_nm)
+    function photon_energy(wavelength_in_nm)
         # Your code here
     end
 
@@ -162,3 +231,62 @@ f(n) = \begin{cases}
     3n + 1 & \text{ if } n \text{ is odd}
 \end{cases}
 $$
+
+4. In infrared spectroscopy, peak positions are usually quoted in wavenumbers $\tilde\nu$ (cm⁻¹), but lasers are specified in wavelength (nm). They are related by $\tilde\nu = 10^7 / \lambda$ when $\lambda$ is in nm. Write a function `wavenumber_to_wavelength(ν)` that converts a wavenumber (cm⁻¹) to a wavelength (nm).
+
+    ```julia
+    wavenumber_to_wavelength(ν) = # your code here
+
+    using Test
+    @test wavenumber_to_wavelength(2000) ≈ 5000 atol=1e-6
+    @test wavenumber_to_wavelength(10000) ≈ 1000 atol=1e-6
+    ```
+
+5. The Lorentzian lineshape is one of the two most common peak shapes in spectroscopy. Write a function `lorentzian(p, x)` that evaluates a Lorentzian peak at `x`, where `p = [A, x₀, Γ]` holds the amplitude, center, and full width at half maximum:
+
+    $$
+    L(x) = \frac{A}{1 + \left(\frac{x - x_0}{\Gamma/2}\right)^2}
+    $$
+
+    The order of arguments — parameters first, independent variable second — matches the convention used by the CurveFit package in Chapter 8.
+
+    ```julia
+    lorentzian(p, x) = # your code here
+
+    using Test
+    @test lorentzian([1.0, 0.0, 2.0], 0.0) ≈ 1.0
+    @test lorentzian([1.0, 0.0, 2.0], 1.0) ≈ 0.5  # half maximum at x = Γ/2
+    ```
+
+6. The Gaussian lineshape is the other common peak shape. Write `gaussian(p, x)` with the same `[A, x₀, Γ]` parameterization, where `Γ` is the full width at half maximum:
+
+    $$
+    G(x) = A \exp\!\left(-\frac{(x - x_0)^2}{2\sigma^2}\right), \quad \sigma = \frac{\Gamma}{2\sqrt{2 \ln 2}}
+    $$
+
+    ```julia
+    gaussian(p, x) = # your code here
+
+    using Test
+    @test gaussian([1.0, 0.0, 2.0], 0.0) ≈ 1.0
+    @test gaussian([1.0, 0.0, 2.0], 1.0) ≈ 0.5  # half maximum at x = Γ/2
+    ```
+
+7. Real peaks are often neither purely Lorentzian nor purely Gaussian — natural and Doppler broadening combine. A *pseudo-Voigt* lineshape approximates this with a weighted sum of the two profiles, controlled by a mixing parameter $\eta \in [0, 1]$:
+
+    $$
+    V(x) = \eta \cdot L(x) + (1 - \eta) \cdot G(x)
+    $$
+
+    Write `pseudo_voigt(p, x)` where `p = [A, x₀, Γ, η]`. Reuse the `lorentzian` and `gaussian` functions you wrote above — this is a function that calls other functions.
+
+    ```julia
+    pseudo_voigt(p, x) = # your code here
+
+    using Test
+    @test pseudo_voigt([1.0, 0.0, 2.0, 1.0], 0.0) ≈ 1.0  # pure Lorentzian
+    @test pseudo_voigt([1.0, 0.0, 2.0, 0.0], 0.0) ≈ 1.0  # pure Gaussian
+    @test pseudo_voigt([1.0, 0.0, 2.0, 0.5], 1.0) ≈ 0.5  # 50/50 mix at half max
+    ```
+
+    Save these three lineshape functions — you will reuse them as model functions in Chapter 8.

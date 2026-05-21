@@ -46,8 +46,8 @@ false
 
 ### Exercises
 1. What is the type result returned by `1 == 2`?
-3. What is the difference between `==` and `===`?
-4. Make the statement `"Hello world"[i:j] == "o wo"` return `true`.
+2. What is the difference between `==` and `===`?
+3. Make the statement `"Hello world"[i:j] == "o wo"` return `true`.
 
 
 ## Logical operators
@@ -121,12 +121,52 @@ end
 
 
 ### Exercises
-1. Write a program that prints a message basd on the temperature. For example:
+1. Write a program that prints a message based on the temperature. For example:
 
     Below 0: "It's freezing!" \
     Between 0 and 20: "It's cold." \
     Between 20 and 30: "It's warm." \
     Above 30: "It's hot!"
+
+
+## Short-circuit evaluation
+The logical operators `&&` and `||` use *short-circuit* evaluation: they only evaluate the second operand when its value is needed to determine the result. This is often used as a compact alternative to `if`:
+
+```julia
+x = 5
+x > 0 && println("x is positive")   # prints only when x > 0
+x > 0 || println("x is not positive")  # prints only when x <= 0
+```
+
+This pattern is common in Julia.
+
+
+## The ternary operator
+The ternary operator `? :` is a one-line `if/else` that returns a value:
+
+```julia
+x = 5
+sign = x > 0 ? "positive" : "non-positive"
+```
+
+Use it for short conditional expressions; for longer logic, prefer a full `if/else` block.
+
+
+## The `in` operator
+The `in` operator checks whether a value belongs to a collection or range:
+
+```julia
+julia> 3 in 1:10
+true
+
+julia> 5 in [1, 2, 3]
+false
+
+julia> 'a' in "banana"
+true
+```
+
+This is often more readable than chaining comparisons.
 
 
 ## Problems
@@ -151,3 +191,13 @@ Why doesn't the original code work as expected?
         println("x is not between 10 and 20")
     end
     ```
+
+3. Given a wavelength `λ` in nanometers, write a program that prints the spectral region it falls in:
+
+    - UV: 10–400 nm
+    - Visible: 400–700 nm
+    - NIR (near-infrared): 700–2500 nm
+    - MIR (mid-infrared): 2500–25000 nm
+    - Anything outside this range: "out of range"
+
+    Test it with `λ = 254` (germicidal UV), `532` (green laser), `1550` (telecom), and `10000` (CO₂ laser).

@@ -49,6 +49,19 @@ julia> a % 2  # modulo
 0
 ```
 
+Notice that `a / 2` returns `1.0` even though both operands are integers. In Julia, `/` always returns a `Float64`, regardless of input types. If you want integer (floor) division, use `÷` (typed `\div<Tab>`); for an exact rational result, use `//`:
+
+```julia
+julia> 7 / 2
+3.5
+
+julia> 7 ÷ 2
+3
+
+julia> 7 // 2
+7//2
+```
+
 
 ### Exercises
 
@@ -106,6 +119,23 @@ String
 ### Exercises
 1. Try operations with different types (like `1 + 2.0`). What happens?
 2. What is the type of operators like `*` and `+`?
+
+
+## Unicode variable names
+Julia variable names can be Unicode characters, which is handy for matching the notation in physics and math. In the REPL or VS Code, type a LaTeX-style command followed by `Tab` to insert the symbol.
+
+```julia
+julia> λ = 620  # \lambda<Tab>
+620
+
+julia> ν = 1e7 / λ  # \nu<Tab>
+16129.032258064515
+
+julia> α, β = 0.1, 0.9  # \alpha<Tab>, \beta<Tab>
+(0.1, 0.9)
+```
+
+Greek letters, subscripts, primes, and many other symbols are supported. The Julia manual lists [all available completions](https://docs.julialang.org/en/v1/manual/unicode-input/).
 
 
 ## Strings
@@ -184,3 +214,5 @@ You can also use `π` (the Greek letter pi) by typing `\pi` and pressing `Tab`.
 Calculate the area of a circle with radius 5 using `pi` or `π`.
 Assign the radius to a variable and use it in the calculation.
 Make sure to assign the result to a variable, also.
+
+3. The Beer-Lambert law relates the absorbance $A$ of a sample to its molar absorptivity $\varepsilon$, concentration $c$, and path length $\ell$ as $A = \varepsilon \cdot c \cdot \ell$. Calculate the absorbance for a sample with $\varepsilon = 1500$ M⁻¹·cm⁻¹, $c = 0.001$ M, and $\ell = 1$ cm. Assign each input to a variable, then assign the result to another variable.

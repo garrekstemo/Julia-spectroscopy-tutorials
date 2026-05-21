@@ -121,10 +121,79 @@ julia> square(4.0 + 2.0im)
     ```
 
 
+## キーワード引数とデフォルト値
+関数の引数にはデフォルト値を指定できます。シグネチャの中で `=` を使って指定します。
+
+```julia
+greet(name, greeting="Hello") = println("$greeting, $name!")
+greet("Alice")            # Hello, Alice!
+greet("Bob", "Hi there")  # Hi there, Bob!
+```
+
+*キーワード引数 (keyword arguments)* も定義できます。キーワード引数は名前で渡し、セミコロン `;` で位置引数と区切ります。
+
+```julia
+function gaussian(x; μ=0.0, σ=1.0)
+    return exp(-(x - μ)^2 / (2σ^2)) / (σ * sqrt(2π))
+end
+
+gaussian(0.5)              # μ と σ はデフォルト値が使われる
+gaussian(0.5; μ=1.0)       # μ を上書き、σ はデフォルト
+gaussian(0.5; μ=1.0, σ=2)  # 両方上書き
+```
+
+キーワード引数を使うと、呼び出し側で引数の意味が明示されるので、引数が多い関数では特に読みやすくなります。
+
+
+## 無名関数
+名前を付ける必要のない 1 回限りの関数を作りたいことがあります。構文は `args -> body` です。
+
+```julia
+julia> (x -> x^2)(5)
+25
+
+julia> map(x -> 2x + 1, 1:5)
+5-element Vector{Int64}:
+  3
+  5
+  7
+  9
+ 11
+```
+
+無名関数は `map`、`filter`、`sort` のような高階関数の引数として渡す用途で特に役立ちます。
+
+
+## ブロードキャスト
+Julia の関数の多くは単一の値を受け取ります。配列のすべての要素に関数を適用したいときは、関数名の後ろに `.` を付けます。
+
+```julia
+julia> square(x) = x^2
+square (generic function with 1 method)
+
+julia> square.([1, 2, 3, 4, 5])
+5-element Vector{Int64}:
+  1
+  4
+  9
+ 16
+ 25
+```
+
+これを *ブロードキャスト (broadcasting)* と呼びます。組み込み関数にもユーザー定義関数にも使え、ループを書くより簡潔です。多次元配列でも同じように動作します。
+
+```julia
+xs = 0.0:0.1:1.0
+ys = sin.(2π .* xs)  # 各 x に sin を適用
+```
+
+後の章でモデル関数を点列にわたって評価する際にも、ブロードキャストを使うことになります。
+
+
 ## 問題
 1. 波長 620 nm、310 nm、1240 nm の光子のエネルギーを eV 単位で計算する関数を書いてください。
     ```julia
-    function wavelength_to_ev(wavelength_in_nm)
+    function photon_energy(wavelength_in_nm)
         # Your code here
     end
 
@@ -162,3 +231,62 @@ f(n) = \begin{cases}
     3n + 1 & \text{ if } n \text{ is odd}
 \end{cases}
 $$
+
+4. 赤外分光ではピーク位置を波数 $\tilde\nu$ (cm⁻¹) で表すことが多い一方、レーザーは波長 (nm) で指定されるのが普通です。$\lambda$ が nm 単位のとき、両者は $\tilde\nu = 10^7 / \lambda$ で結ばれます。波数 (cm⁻¹) を波長 (nm) に変換する関数 `wavenumber_to_wavelength(ν)` を書いてみましょう。
+
+    ```julia
+    wavenumber_to_wavelength(ν) = # your code here
+
+    using Test
+    @test wavenumber_to_wavelength(2000) ≈ 5000 atol=1e-6
+    @test wavenumber_to_wavelength(10000) ≈ 1000 atol=1e-6
+    ```
+
+5. ローレンツ型のラインシェイプは、分光学で最もよく現れるピーク形状のひとつです。`p = [A, x₀, Γ]` に振幅・中心・半値全幅 (FWHM) を詰め込み、点 `x` でローレンツ型ピークを評価する関数 `lorentzian(p, x)` を書いてください。
+
+    $$
+    L(x) = \frac{A}{1 + \left(\frac{x - x_0}{\Gamma/2}\right)^2}
+    $$
+
+    引数の順番 (パラメータが先、独立変数が後) は、第 8 章で使う CurveFit パッケージの慣例に合わせています。
+
+    ```julia
+    lorentzian(p, x) = # your code here
+
+    using Test
+    @test lorentzian([1.0, 0.0, 2.0], 0.0) ≈ 1.0
+    @test lorentzian([1.0, 0.0, 2.0], 1.0) ≈ 0.5  # x = Γ/2 で半値
+    ```
+
+6. もうひとつのよく現れるピーク形状がガウシアン (Gaussian) です。同じ `[A, x₀, Γ]` パラメータ化で `gaussian(p, x)` を書きましょう。ここで `Γ` は半値全幅 (FWHM) です。
+
+    $$
+    G(x) = A \exp\!\left(-\frac{(x - x_0)^2}{2\sigma^2}\right), \quad \sigma = \frac{\Gamma}{2\sqrt{2 \ln 2}}
+    $$
+
+    ```julia
+    gaussian(p, x) = # your code here
+
+    using Test
+    @test gaussian([1.0, 0.0, 2.0], 0.0) ≈ 1.0
+    @test gaussian([1.0, 0.0, 2.0], 1.0) ≈ 0.5  # x = Γ/2 で半値
+    ```
+
+7. 実際のピークは、純粋なローレンツでもガウシアンでもないことが多くあります。自然幅とドップラー広がりが重なるためです。*疑似 Voigt (pseudo-Voigt)* ラインシェイプは、混合パラメータ $\eta \in [0, 1]$ で 2 つのプロファイルを重み付き和として近似します。
+
+    $$
+    V(x) = \eta \cdot L(x) + (1 - \eta) \cdot G(x)
+    $$
+
+    `p = [A, x₀, Γ, η]` を受け取る `pseudo_voigt(p, x)` を書いてみましょう。上で書いた `lorentzian` と `gaussian` を再利用してください。これは「関数が別の関数を呼ぶ」例になります。
+
+    ```julia
+    pseudo_voigt(p, x) = # your code here
+
+    using Test
+    @test pseudo_voigt([1.0, 0.0, 2.0, 1.0], 0.0) ≈ 1.0  # 純粋ローレンツ
+    @test pseudo_voigt([1.0, 0.0, 2.0, 0.0], 0.0) ≈ 1.0  # 純粋ガウシアン
+    @test pseudo_voigt([1.0, 0.0, 2.0, 0.5], 1.0) ≈ 0.5  # 半値での 50:50 混合
+    ```
+
+    これら 3 つのラインシェイプ関数は、第 8 章でもモデル関数として再利用するので、保存しておいてください。

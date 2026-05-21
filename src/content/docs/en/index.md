@@ -6,6 +6,10 @@ An introduction to the Julia programming language for spectroscopy data analysis
 
 Chapters 1–6 cover programming fundamentals; Chapters 7–9 cover data analysis and visualization.
 
+## How to use this tutorial
+
+Each chapter has inline **Exercises** (short — work them as you read) and end-of-chapter **Problems** (longer, sometimes building functions you'll reuse in later chapters). The point is to write code, not just read it. Solutions live in the [solutions repository](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy-solutions).
+
 ## Source code and exercise data
 
 The code that generates the figures in these chapters lives in [`generate_images`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/generate_images). Data files for the worked examples and problems are in [`data`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/data).

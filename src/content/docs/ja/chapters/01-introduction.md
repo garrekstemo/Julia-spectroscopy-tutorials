@@ -175,4 +175,4 @@ Makie とその依存パッケージのインストールとコンパイルが�
 
 ## 問題
 1. `tutorials` フォルダに "hello_world.jl" というファイルを作り、`println("Hello, world!")` と入力します。Shift+Enter でその行を実行しましょう。
-2. Julia の公式ドキュメント [docs.julialang.org](https://docs.julialang.org/) をのぞいてみましょう。どんな情報が見つかりますか?
+2. Julia 公式ドキュメント [docs.julialang.org](https://docs.julialang.org/) で `println` 関数のドキュメントを探してみましょう。シグネチャはどうなっていて、`print` とはどう違うでしょうか?

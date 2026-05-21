@@ -174,4 +174,4 @@ Below is what your environment and file structure should look like after setup.
 
 ## Problems
 1. In your `tutorials` folder, create a file called "hello_world.jl" and type `println("Hello, world!")` in the file. Hit Shift+Enter to run this line of code.
-2. Check out the Julia documentation at [docs.julialang.org](https://docs.julialang.org/). What kinds of things can you find there?
+2. Find the documentation for the `println` function on [docs.julialang.org](https://docs.julialang.org/). What is its signature, and how does it differ from `print`?
