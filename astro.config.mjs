@@ -6,6 +6,7 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   site: 'https://garrekstemo.github.io',
   base: '/Intro-to-Julia-for-spectroscopy',
+  devToolbar: { enabled: false },
   redirects: {
     '/': '/en/',
   },
