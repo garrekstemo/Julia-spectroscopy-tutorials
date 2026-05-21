@@ -69,13 +69,8 @@
   font-display: swap;
   src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Italic.ttf") format("truetype");
 }
-@font-face {
-  font-family: "Courier Prime Code";
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Bold.ttf") format("truetype");
-}
+/* Courier Prime Code has no Bold variant upstream — bold weights fall through
+   to the next family in --sl-font-system-mono (Courier Prime, which has Bold). */
 
 /* ------------------------------------------------------------------ */
 /* Starlight design-token overrides — typography and palette           */
