@@ -12,15 +12,12 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
-    shikiConfig: {
-      themes: {
-        light: 'min-light',
-        dark: 'min-dark',
-      },
-    },
   },
   integrations: [
     starlight({
+      expressiveCode: {
+        themes: ['min-light', 'min-dark'],
+      },
       title: 'Intro to Julia for Spectroscopy',
       defaultLocale: 'en',
       locales: {
