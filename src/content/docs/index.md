@@ -11,3 +11,12 @@ Display math sample:
 $$
 \hat{H} \psi = E \psi
 $$
+
+A Julia code sample:
+
+```julia
+function lorentzian(p, x)
+    A, x0, gamma = p
+    @. A * gamma^2 / ((x - x0)^2 + gamma^2)
+end
+```

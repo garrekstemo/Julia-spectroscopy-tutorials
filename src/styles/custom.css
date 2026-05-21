@@ -219,3 +219,33 @@ starlight-sidebar a,
   margin-top: 3em;
   margin-bottom: 3em;
 }
+
+/* ------------------------------------------------------------------ */
+/* Code blocks and inline code                                         */
+/* ------------------------------------------------------------------ */
+
+.sl-markdown-content code {
+  font-family: var(--sl-font-system-mono);
+  font-size: 0.95em;
+}
+
+.sl-markdown-content :not(pre) > code {
+  background: transparent;
+  padding: 0 0.1em;
+}
+
+.sl-markdown-content pre {
+  font-family: var(--sl-font-system-mono);
+  font-size: 0.95em;
+  line-height: 1.6;
+  padding: 1em 1.25em;
+  border: 1px solid var(--color-code-border);
+  border-radius: 8px;
+  background-color: var(--color-code-bg);
+  overflow: auto;
+}
+
+.sl-markdown-content pre code {
+  background: transparent;
+  font-size: inherit;
+}
