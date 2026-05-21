@@ -22,3 +22,8 @@ Manifest.toml
 # Ignore all local history of files
 .history
 .ionide
+
+# Astro
+dist/
+.astro/
+node_modules/

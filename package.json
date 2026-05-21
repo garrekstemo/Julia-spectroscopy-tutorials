@@ -1,0 +1,32 @@
+{
+  "name": "intro-to-julia-for-spectroscopy",
+  "version": "1.0.0",
+  "description": "Tested with Julia version: 1.12",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/issues"
+  },
+  "homepage": "https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy#readme",
+  "dependencies": {
+    "@astrojs/starlight": "^0.39.2",
+    "astro": "^6.3.6",
+    "sharp": "^0.34.5"
+  }
+}
