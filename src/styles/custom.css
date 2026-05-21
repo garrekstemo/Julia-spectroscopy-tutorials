@@ -139,3 +139,81 @@
   --color-code-bg: #1e3036;
   --color-code-border: #2a3d44;
 }
+
+/* ------------------------------------------------------------------ */
+/* Typography scale (Major Third — 1.25 ratio)                        */
+/* ------------------------------------------------------------------ */
+
+body {
+  font-family: var(--sl-font);
+  font-size: var(--sl-text-base);
+  line-height: var(--sl-line-height);
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+  font-family: var(--sl-font);
+}
+
+.sl-markdown-content h1 { font-size: 2em; font-weight: 700; }
+.sl-markdown-content h2 { font-size: 1.5em; line-height: 1.4; }
+.sl-markdown-content h3 { font-size: 1.25em; margin-top: 1.5em; margin-bottom: 1em; }
+
+/* ------------------------------------------------------------------ */
+/* Link hover — distinctive thick-underline (from garrek.org)         */
+/* ------------------------------------------------------------------ */
+
+.sl-markdown-content a {
+  color: var(--sl-color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--sl-color-accent);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-text);
+  text-decoration-color: var(--color-link-hover);
+  text-decoration-thickness: 0.6em;
+  text-underline-offset: -5px;
+  text-decoration-skip-ink: none;
+}
+
+.sl-markdown-content h1 a,
+.sl-markdown-content h2 a,
+.sl-markdown-content h3 a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Sidebar — Courier Prime, slightly larger                            */
+/* ------------------------------------------------------------------ */
+
+starlight-sidebar nav,
+.sidebar nav {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+}
+
+starlight-sidebar a,
+.sidebar a {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 1.05em;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------------ */
+/* hr — blue 1px rule                                                  */
+/* ------------------------------------------------------------------ */
+
+.sl-markdown-content hr {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background-color: var(--color-hr);
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
