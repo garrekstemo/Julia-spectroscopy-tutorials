@@ -145,6 +145,106 @@ Starlight uses Shiki by default — VS Code's syntax highlighter. Julia is suppo
 
 Pagefind is included with Starlight — automatic indexing, client-side search, no external service. Each locale gets its own index.
 
+## Styling — match garrek.org
+
+The tutorial site should feel like it belongs to the same family as [garrek.org](https://garrek.org) — same typographic voice, same color palette, same link behavior — while accepting that Starlight's component architecture means we're matching the *spirit* of the design rather than pixel-perfect.
+
+### Fonts (self-hosted, copied from garrek.org's `src/assets/fonts/`)
+
+| Use | Family | Fallback stack |
+|---|---|---|
+| Body + headings | **Libre Baskerville** | `Georgia, "Times New Roman", serif` |
+| Sidebar nav, buttons, callout labels | **Courier Prime** | `"Courier New", Courier, monospace` |
+| Code blocks + inline code | Menlo | `Monaco, monospace` (system) |
+| Figcaptions | Helvetica | `Arial, sans-serif` (system) |
+
+Lyon Text (used on the personal site) is a trial font — substituting **Libre Baskerville** here for licensing reasons. The fonts live in `public/fonts/` and are loaded via `@font-face` in `src/styles/custom.css`.
+
+### Color palette (light + dark, via `prefers-color-scheme`)
+
+Lifted directly from `garrek-org/src/css/styles.css`:
+
+| Token | Light | Dark |
+|---|---|---|
+| Background | `#ffffff` | `#15252b` (deep teal) |
+| Body text | `#202020` | `#d0d0d0` |
+| Heading text | `#000` (h1/h2), `#4c4c4c` (h3) | `#d4795a` (terracotta) |
+| Link underline | `#2090e0` (blue) | `#2090e0` (blue) |
+| Link hover underline | `#e05a3a` (terracotta) | `#e8734f` (terracotta) |
+| Sidebar nav text | `#1478d4` (blue) | `#5aafe6` (light blue) |
+| Sidebar nav hover | `#e05a3a` | `#e8734f` |
+| Code block bg | `#f8f9fa` | `#b0b0b0` (light card on dark page) |
+| Code block text | `#15252b` | `#000` |
+| `<hr>` rule | `#2090e0` | `#2090e0` |
+
+These are wired into Starlight via CSS custom properties in `custom.css` — Starlight exposes its design tokens as `--sl-color-*` variables which we override.
+
+### Typography (Major Third — 1.25 ratio)
+
+- Body: `1em` (16px), `line-height: 1.6`
+- h1: `2em`, weight 700
+- h2: `1.5em`, `line-height: 1.4`
+- h3: `1.25em`
+- Site title: `1.6em` Libre Baskerville, weight 400
+- Sidebar nav: `1.2em` Courier Prime on desktop, `1em` on mobile, weight 300
+
+### Link hover (distinctive — port verbatim)
+
+```css
+a {
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+a:hover {
+  text-decoration-thickness: 0.6em;
+  text-underline-offset: -5px;
+  text-decoration-skip-ink: none;
+}
+```
+
+This is the defining visual signature of garrek.org. Apply to all prose links.
+
+### Layout adjustments
+
+Starlight defaults that we override:
+- **Content max-width**: 800px (matches garrek.org) — override `--sl-content-width`
+- **Sidebar width**: 180px (matches garrek.org's left nav) — override `--sl-sidebar-width`
+- **Right-side table of contents**: hidden by default on chapter pages (garrek.org doesn't have one; tutorial chapters are short enough that headings nav is overhead). Achieved per-page via `tableOfContents: false` in frontmatter, or globally via Starlight config.
+- **Sidebar font**: Courier Prime, weight 300, right-aligned on desktop. Achieved via custom CSS targeting `.sidebar nav a`.
+
+### Component overrides (Starlight slot mechanism)
+
+Starlight lets you swap out individual components via `astro.config.mjs`:
+
+```js
+starlight({
+  components: {
+    SiteTitle: './src/components/SiteTitle.astro',
+    PageTitle: './src/components/PageTitle.astro',
+  },
+  // ...
+})
+```
+
+Initial overrides:
+- `SiteTitle.astro`: render the site title in Libre Baskerville at `1.6em`, matching garrek.org's `.site-title`
+- `PageTitle.astro`: render chapter `# Title` in the same scale as garrek.org's `h1` (`2em`, weight 700)
+
+Header layout (sticky top, border-bottom rule, title left + repo link right) can be handled with CSS alone; no `Header.astro` override needed initially.
+
+### Code blocks
+
+Garrek.org disables syntax highlighting. The tutorial needs it for Julia. Choice: use Shiki's `github-light` / `github-dark` themes — muted, readable, doesn't overwhelm the serif body. Code block container uses garrek.org's styling: `1px` border, `10px` border-radius, `1em 1.5em` padding, Menlo at `1em`/`1.6em`.
+
+### Out-of-scope styling deviations (intentional)
+
+- **Some Starlight JS will be present** (search modal, mobile nav, theme toggle). Garrek.org's zero-JS principle doesn't apply here — search is the trade.
+- **Syntax highlighting is on.** Justified by content (Julia tutorial); garrek.org's prose doesn't need it.
+- **No "Subscribe" button** in the header. The personal site has one for newsletter; tutorial doesn't need it. Repo link in the header replaces it.
+- **No light/dark toggle button** if `prefers-color-scheme` handles it cleanly. Starlight ships a toggle; we can hide it via CSS if we want to match garrek.org's purely-automatic approach. Decision: **keep the toggle** — students may want to override the system preference.
+
+
+
 ## Build & deploy
 
 ### Local development
@@ -184,16 +284,19 @@ Site URL: `https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/`.
 ## Migration plan (preview — full plan written separately)
 
 1. Initialize Astro + Starlight: `npm create astro@latest -- --template starlight`, configure `astro.config.mjs`
-2. Move EN chapters: rename `chapters/01. Introduction.md` → `src/content/docs/en/chapters/01-introduction.md`, add `title:` frontmatter, leave body alone
-3. Move JA chapters: same slug as EN, but `title: <Japanese title>` in frontmatter
-4. Move `images/` → `public/images/` and rewrite all `![](../images/...)` to `![](/images/...)` in chapter files (single find-replace pass)
-5. Create EN and JA landing pages from `ReadMe.md` content and `ja/ReadMe.md`
-6. Sweep chapter files for cross-references; convert to Starlight-style internal links
-7. Delete the now-empty `ja/` tree and original top-level `chapters/`
-8. Verify locally with `npm run dev`: click every chapter, both languages, check math/images/code blocks
-9. Add GitHub Actions workflow, enable Pages with "GitHub Actions" as the source
-10. Delete `src/make_pdf.sh`, the now-empty `src/`, and `pdf/`
-11. Update top-level `ReadMe.md`: shorten to a brief intro + prominent link to the published site
+2. Copy fonts from `garrek-org/src/assets/fonts/Libre-Baskerville/` and `Courier-Prime/` into `public/fonts/`
+3. Write `src/styles/custom.css`: `@font-face` declarations, Starlight CSS variable overrides for colors/widths/fonts, link hover rules, h1–h3 scale
+4. Build component overrides: `src/components/SiteTitle.astro` and `src/components/PageTitle.astro`
+5. Move EN chapters: rename `chapters/01. Introduction.md` → `src/content/docs/en/chapters/01-introduction.md`, add `title:` frontmatter, leave body alone
+6. Move JA chapters: same slug as EN, but `title: <Japanese title>` in frontmatter
+7. Move `images/` → `public/images/` and rewrite all `![](../images/...)` to `![](/images/...)` in chapter files (single find-replace pass)
+8. Create EN and JA landing pages from `ReadMe.md` content and `ja/ReadMe.md`
+9. Sweep chapter files for cross-references; convert to Starlight-style internal links
+10. Delete the now-empty `ja/` tree and original top-level `chapters/`
+11. Verify locally with `npm run dev`: click every chapter, both languages, check math/images/code blocks, verify link hover matches garrek.org, verify light/dark palette
+12. Add GitHub Actions workflow, enable Pages with "GitHub Actions" as the source
+13. Delete `src/make_pdf.sh`, the now-empty `src/`, and `pdf/`
+14. Update top-level `ReadMe.md`: shorten to a brief intro + prominent link to the published site
 
 ## Out of scope
 
@@ -201,7 +304,7 @@ Site URL: `https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/`.
 - Code execution at build time (would require swapping Starlight for Quarto or layering in a custom integration)
 - Interactive in-browser Julia (Pluto, Pyodide) — large separate project
 - Per-page search backend beyond Pagefind (Pagefind is sufficient)
-- Custom theming beyond Starlight defaults + a small `custom.css` for fonts/spacing
+- Pixel-perfect parity with garrek.org (the styling target is "feels like the same family," not "identical"). Some Starlight UI (search modal, mobile drawer, code copy buttons) will remain Starlight-shaped.
 - Custom domain (can be added later via `CNAME` and config)
 
 ## Success criteria
@@ -210,5 +313,7 @@ Site URL: `https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/`.
 - All 10 chapters render correctly with math, code blocks (with copy button), images, tables
 - Language switcher takes the user to the matching page in the other language
 - Pagefind search works across all chapters in the current language
+- Visual identity reads as part of the garrek.org family: Libre Baskerville body, Courier Prime sidebar, blue/terracotta link palette, distinctive thick-underline hover
+- Light and dark mode both honor the lifted color palette
 - `src/make_pdf.sh`, `pdf/`, and the old top-level `chapters/` and `ja/` trees are gone
 - Updating a chapter is a one-file edit — no separate build artifacts to regenerate
