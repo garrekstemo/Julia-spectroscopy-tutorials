@@ -1,0 +1,18 @@
+---
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+---
+<a href={siteTitleHref} class="site-title">{siteTitle}</a>
+
+<style>
+  .site-title {
+    font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    font-size: 1.6em;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--sl-color-text);
+    display: inline-block;
+  }
+  .site-title:hover {
+    text-decoration: none;
+  }
+</style>
