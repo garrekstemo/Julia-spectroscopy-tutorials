@@ -1,4 +1,6 @@
-# Transfer Matrix Method
+---
+title: Transfer matrix
+---
 
 This chapter blends physics and programming.
 First we will cover strong coupling in microcavity structures and then we will use the transfer matrix method to simulate the propagation of electromagnetic waves through a series of layers.

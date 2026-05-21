@@ -1,4 +1,6 @@
-# Iteration
+---
+title: Iteration
+---
 
 ## *While* statements
 While loops allow you to execute a block of code as long as a condition is true.

@@ -1,4 +1,6 @@
-# Plotting
+---
+title: Plotting
+---
 
 All of the tools we have used so far have been part of the Julia standard library.
 In this lesson we will use an external package for the first time: a plotting library called [Makie.jl](https://makie.org).
@@ -74,7 +76,7 @@ f = Figure()
 ax = Axis(f[1, 1], title = "First Axis")
 f
 ```
-![](../images/one_axis.png)
+![](/Intro-to-Julia-for-spectroscopy/images/one_axis.png)
 
 You can see that it takes up the entire figure.
 Let's make another `Axis` in the first row and second column of the figure.
@@ -85,7 +87,7 @@ ax = Axis(f[1, 1])
 ax2 = Axis(f[1, 2])
 f
 ```
-![](../images/two_axes.png)
+![](/Intro-to-Julia-for-spectroscopy/images/two_axes.png)
 The first axis resizes to accommodate the second axis.
 An `Axis` can span multiple rows and columns.
 
@@ -96,7 +98,7 @@ ax2 = Axis(f[1, 2])
 ax3 = Axis(f[2, 1:2])
 f
 ```
-![](../images/three_axes.png)
+![](/Intro-to-Julia-for-spectroscopy/images/three_axes.png)
 
 
 These are just the basics of the powerful layout system in Makie.
@@ -161,7 +163,7 @@ lines!(
 axislegend(position = :rb)
 f
 ```
-![](../images/damped_sine_wave.png)
+![](/Intro-to-Julia-for-spectroscopy/images/damped_sine_wave.png)
 
 
 If the plot comes after the `Axis` definition, it will be drawn on top of the `Axis` and you don't need to input the `ax` variable.
@@ -226,7 +228,7 @@ axislegend(ax)
 f
 ```
 
-![](../images/cascading_layout.png)
+![](/Intro-to-Julia-for-spectroscopy/images/cascading_layout.png)
 
 
 ## Navigating a plot

@@ -1,4 +1,6 @@
-# Arrays
+---
+title: Arrays
+---
 
 Arrays are a collection of elements usually of the same type and usually stored in contiguous memory locations.
 They are a fundamental data structure used for storing lists, searching, and sorting data.

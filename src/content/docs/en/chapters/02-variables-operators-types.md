@@ -1,4 +1,6 @@
-# Variables, operators, and types
+---
+title: Variables, operators, and types
+---
 
 Open the REPL (the command line interface for Julia) by typing `julia` in the terminal.
 REPL stands for Read-Eval-Print Loop.

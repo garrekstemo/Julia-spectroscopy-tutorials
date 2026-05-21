@@ -1,4 +1,6 @@
-# Functions
+---
+title: Functions
+---
 
 Functions are used to organize code and make it reusable.
 Once it is written, you don't have to think about how it works.

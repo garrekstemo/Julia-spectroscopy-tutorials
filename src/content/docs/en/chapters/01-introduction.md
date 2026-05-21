@@ -1,4 +1,6 @@
-# Introduction
+---
+title: Introduction
+---
 
 This tutorial is designed to introduce students to the Julia programming language and its applications in spectroscopy.
 Lessons are more like lecture notes.
@@ -136,7 +138,7 @@ Let's create an environment for the `tutorials` folder that you made in the prev
 If it is not already open, open the `tutorials` folder in Visual Studio Code.
 Then let's create a new environment here, following these steps:
 1. Open the Julia REPL in Visual Studio Code via the Command Palette (Ctrl+Shift+P) and find `Julia: Start REPL`.
-![](../images/command_palette.png)
+![](/Intro-to-Julia-for-spectroscopy/images/command_palette.png)
 
 2. In the REPL, type `]` to enter the package manager mode.
 Notice that here too, it says `(@v1.11) pkg>` or similar, indicating that you are in the global environment.
@@ -159,7 +161,7 @@ When Makie and its dependencies have finished installing and compiling, you can 
 
 Below is what your environment and file structure should look like after setup.
 
-![](../images/environment_example.png)
+![](/Intro-to-Julia-for-spectroscopy/images/environment_example.png)
 
 
 ### Exercises

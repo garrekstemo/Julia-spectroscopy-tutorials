@@ -1,4 +1,6 @@
-# Fourier transform and spectroscopy
+---
+title: Fourier transform
+---
 
 Every signal has a spectrum that can be analyzed in the time domain or the frequency domain. Alternatively, you can measure in the spatial domain or spatial frequency domain. The Fourier transform is a mathematical operation that converts a signal from the time domain to the frequency domain.
 
@@ -14,7 +16,7 @@ Consider a sine wave at 60 Hz and its first harmonic at 120 Hz at half the ampli
 The time-domain signal may look complicated, as shown in the figure below, the Fourier transform of the signal will show two distinct peaks at 60 Hz and 120 Hz.
 This simple example demonstrates the power of the Fourier transform to decompose a complex signal into its constituent frequencies, and we will use it to analyze much more complex signals arising from interactions between light and matter.
 
-![](../images/FFT_two_notes.png)
+![](/Intro-to-Julia-for-spectroscopy/images/FFT_two_notes.png)
 
 Let's implement this example in code.
 First we import the required packages, GLMakie for visualization and FFTW for the Fourier transform
@@ -100,7 +102,7 @@ and
 
 $$\int_{-\infty}^{\infty} \delta(x) dx = 1.$$
 
-![](../images/delta_distribution.png)
+![](/Intro-to-Julia-for-spectroscopy/images/delta_distribution.png)
 The Dirac delta function is actually a distrubution, not a function,
 and distributions are defined by their integration properties or actions on test functions.
 For a function $f(x)$ that is continuous at $x = 0$, the delta function has the property
