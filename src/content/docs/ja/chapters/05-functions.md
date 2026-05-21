@@ -18,8 +18,7 @@ Julia には多くの組み込み関数があり、自分で関数を定義す�
 他の組み込み数学関数には次のようなものがあります: `sin`, `cos`, `exp`, `log`, `sqrt`, `abs`, `round`, `floor`, `ceil`, `max`, `min`。
 数値以外の関数には `length`, `size`, `typeof`, `print`, `println`, `push!`, `pop!`, `sort`, `reverse` などがあり、他にも多数あります。
 
-REPL でこれらの関数を実際に試してみましょう。\
-(指導者向け: 以下の例を全部やる必要はありません。さまざまな組み込み関数があることを示すための例です。)
+REPL でこれらの関数を実際に試してみましょう。以下の例は組み込み関数の多様さを示すためのものなので、すべてを試す必要はありません。
 
 ```julia
 julia> round(3.14159, digits=2)  # This function has two arguments (inputs).

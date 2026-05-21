@@ -7,7 +7,7 @@ REPL stands for Read-Eval-Print Loop.
 
 Follow along with the code examples below in the REPL.
 Try things out yourself and play with the code as you go.
-Before running each snippet, pause and ask yourself, "What do I think will happen?" — it's a habit worth developing, and the same mindset is useful when you later set up your own optics experiments.
+Before running each snippet, pause and ask yourself, "What do I think will happen?" — it's a habit worth developing, and the same mindset transfers naturally to setting up experiments and interpreting their results.
 
 
 ## Assignment and basic operations

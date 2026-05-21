@@ -71,7 +71,7 @@ If there is, then the model is not a good fit to the data.
 
 ## Example: polariton dispersion
 
-Later you will measure the Rabi splitting of a polariton system as a function of beam incidence angle.
+Suppose you measure the Rabi splitting of a polariton system as a function of beam incidence angle.
 There will be two peaks in the transmission spectrum, one corresponding to the upper polariton and the other to the lower polariton, that will change in frequency with angle.
 One way to extract the Rabi splitting is to measure the angle-resolved spectrum, plot the frequency versus incidence angle, and fit the data to a simple coupled harmonic oscillator model, given by the Hamiltonian:
 

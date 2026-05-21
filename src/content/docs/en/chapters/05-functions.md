@@ -18,8 +18,7 @@ We have already seen basic functions like `*` and `+` for multiplication and add
 Other built-in mathematical functions include: `sin`, `cos`, `exp`, `log`, `sqrt`, `abs`, `round`, `floor`, `ceil`, `max`, `min`.
 Non-numerical functions include: `length`, `size`, `typeof`, `print`, `println`, `push!`, `pop!`, `sort`, `reverse`, and many more.
 
-Play around with these functions in the REPL. \
-(To instructor: you don't have to do all of the below examples. They are just to show the variety of built-in functions available.)
+Play around with these functions in the REPL. The examples below illustrate the variety of built-in functions available — you don't need to work through every one.
 
 ```julia
 julia> round(3.14159, digits=2)  # This function has two arguments (inputs).

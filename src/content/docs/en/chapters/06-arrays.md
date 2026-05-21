@@ -209,7 +209,7 @@ There are many ways to construct arrays in Julia, including a few provided funct
 The `rand` function creates an array of random numbers.
 Often we want a normal distribution, which can be achieved with the `randn` function.
 This is useful for creating gaussian noise in simulations, for example.
-We will use this later in the course.
+We will use it later.
 
 ```julia
 julia> x = rand(3)

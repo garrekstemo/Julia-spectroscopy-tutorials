@@ -8,7 +8,7 @@ We use the Fourier transform to analyze the optical response of materials. Somet
 
 We also often use a spectrometer called a Fourier transform infrared (FTIR) spectrometer. This instrument measures the interference pattern of light from a sample (called the interferogram) and uses the Fourier transform to convert the interference pattern into a spectrum.
 
-A proper Fourier transform course would take many weeks to cover. Here we will only cover the basics to understand how to compute the Fourier transform in Julia and interpret the results.
+A proper treatment of the Fourier transform would take many weeks. Here we will only cover the basics needed to compute the Fourier transform in Julia and interpret the results.
 
 ## Two frequencies
 
@@ -135,7 +135,7 @@ $$
 
 2. Write down the equation for a damped oscillator in terms of a temporal decay constant and an oscillation frequency and then implement it in code. Then compute its Fourier transform. Plot both curves. What happens to both the time-domain curve and its transform when you change the decay constant?
 
-I have given you code that implements a square wave and its Fourier transform. From the code, answer the following questions. **DO NOT RUN THE CODE YET!!** Just read it.
+Below is code that implements a square wave and its Fourier transform. **Read it before running it** and answer the following questions just from the code.
 
 3. What is the frequency of the square wave?
 4. How many harmonics are present in the Fourier transform and what are their frequencies?
@@ -149,8 +149,8 @@ Now **run the code** and answer the following questions.
 
 The photosynthetic light harvesting antennas in proteins are known to have electronic coherences, which are notoriously difficult to measure because of the noisiness of biological environments. The paper used in this problem measures long-lived coherences between excitons and molecular vibrations in coupled chromophores.
 The following problem uses raw data from Figure 2d in the paper.
-The raw data and basic code are provided.
-You will perform analysis to extract the lifetime and frequency of the oscillations.
+The raw data and basic code are available in the [tutorial repository](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy).
+The goal is to extract the lifetime and frequency of the oscillations.
 
 
 Zhu, *et al*. Quantum Phase Synchronization via Exciton-Vibrational Energy Dissipation Sustains Long-Lived Coherence in Photosynthetic Antennas. Nat Commun 2024, 15 (1), 3171. https://doi.org/10.1038/s41467-024-47560-6.

@@ -73,13 +73,13 @@ It is important in science to have well-organized data and code for reproducibil
 
 Follow these steps to create a project folder for your tutorials and experiments:
 
-1. On macOS, go to `~/Documents/` and create a new folder called `projects`. On Windows go to `C:\Users\<username>\Documents\` and create a new folder called `projects`. This is where you will store your projects while you are in the lab.
+1. On macOS, go to `~/Documents/` and create a new folder called `projects`. On Windows go to `C:\Users\<username>\Documents\` and create a new folder called `projects`. This is where you will store your projects.
 
-2. Inside of `projects`, create a new folder called `tutorials`. This is where you will store code for these tutorials. (You can make other folders for your main experiments later in `projects`.)
+2. Inside of `projects`, create a new folder called `tutorials`. This is where you will store code for these tutorials. (You can make other folders for your own projects later in `projects`.)
 
 3. Open Visual Studio Code and open the `tutorials` folder that you just created (click File, then Open Folder... from the menu).
 
-4. Click on the new folder icon and make a new folder called `programming` or something similar. This is where you will store code and homework for the programming tutorial.
+4. Click on the new folder icon and make a new folder called `programming` or something similar. This is where you will store code and exercises for the programming tutorial.
 
 5. Create a new file for the next lesson in the `programming` folder called `variables.jl` or `lesson1.jl` or anything you like.
 

@@ -13,7 +13,7 @@ Check out the official [Makie tutorials](https://docs.makie.org/stable/tutorials
 
 ## Before we start
 Makie's [Getting Started](https://docs.makie.org/stable/tutorials/getting-started) tutorial is very well written and, honestly, I can't do much better for an introduction.
-Before this lesson, please go through it on your own and ask questions if you run into trouble.
+Please work through it before continuing.
 
 We already installed Makie in the first chapter, but here is a quick reminder.
 

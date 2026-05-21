@@ -74,13 +74,13 @@ VS Code の [コマンドパレット](https://code.visualstudio.com/docs/getsta
 
 次の手順でチュートリアルと実験用のプロジェクトフォルダを作りましょう。
 
-1. macOS では `~/Documents/` に移動して `projects` という新しいフォルダを作ります。Windows では `C:\Users\<username>\Documents\` に移動して同じく `projects` というフォルダを作ります。ここに研究室で行うプロジェクトを保存していきます。
+1. macOS では `~/Documents/` に移動して `projects` という新しいフォルダを作ります。Windows では `C:\Users\<username>\Documents\` に移動して同じく `projects` というフォルダを作ります。ここに自分のプロジェクトを保存していきます。
 
-2. `projects` の中に `tutorials` という新しいフォルダを作ります。ここにチュートリアル用のコードを保存します。(後で `projects` の中に主実験用の別のフォルダを作る予定です。)
+2. `projects` の中に `tutorials` という新しいフォルダを作ります。ここにチュートリアル用のコードを保存します。(後で `projects` の中に自分のプロジェクト用の別のフォルダを作っても構いません。)
 
 3. Visual Studio Code を起動し、今作った `tutorials` フォルダを開きます (メニューから File → Open Folder...)。
 
-4. 新規フォルダのアイコンをクリックし、`programming` などの名前で新しいフォルダを作ります。ここにプログラミングチュートリアルのコードと宿題を保存します。
+4. 新規フォルダのアイコンをクリックし、`programming` などの名前で新しいフォルダを作ります。ここにプログラミングチュートリアルのコードと練習問題を保存します。
 
 5. `programming` フォルダの中に次のレッスン用のファイルを作りましょう。名前は `variables.jl` や `lesson1.jl` など、好きなもので構いません。
 
