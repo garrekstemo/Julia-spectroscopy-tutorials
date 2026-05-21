@@ -6,9 +6,8 @@ Open the REPL (the command line interface for Julia) by typing `julia` in the te
 REPL stands for Read-Eval-Print Loop.
 
 Follow along with the code examples below in the REPL.
-Adapt the code based on student feedback and progression.
-Remember to ask students to try things out themselves and play with the code.
-Use the question, "What do you think will happen?" to encourage students to think about the code before running it. Also a useful way of thinking about their optics setups later.
+Try things out yourself and play with the code as you go.
+Before running each snippet, pause and ask yourself, "What do I think will happen?" — it's a habit worth developing, and the same mindset is useful when you later set up your own optics experiments.
 
 
 ## Assignment and basic operations

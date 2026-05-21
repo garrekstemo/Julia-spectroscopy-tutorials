@@ -2,12 +2,10 @@
 title: Intro to Julia for Spectroscopy
 ---
 
-A short course introducing the Julia programming language for spectroscopy data analysis. It is intended for students who have never programmed before, or who have only done a little programming in another language.
+An introduction to the Julia programming language for spectroscopy data analysis. It assumes no prior programming experience, but readers who have programmed a little in another language should also find it useful.
 
-The course covers programming fundamentals (Chapters 1–6) and data analysis and visualization (Chapters 7–10). Tested with Julia 1.12.
+Chapters 1–6 cover programming fundamentals; Chapters 7–9 cover data analysis and visualization.
 
-## How the course is organized
+## Source code and exercise data
 
-Lessons include short in-class exercises and longer take-home problems, organized by chapter. The code that generates figures lives in the [`generate_images`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/generate_images) directory of the source repository. Data for exercises is in [`data`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/data).
-
-The corresponding experimental tutorials are at [Optics Tutorials](https://github.com/garrekstemo/Optics-Tutorials).
+The code that generates the figures in these chapters lives in [`generate_images`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/generate_images). Data files for the worked examples and problems are in [`data`](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy/tree/main/data).

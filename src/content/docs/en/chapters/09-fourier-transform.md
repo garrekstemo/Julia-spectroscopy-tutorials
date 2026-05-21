@@ -88,38 +88,50 @@ You can see that it just swaps the first half of the array with the second half.
 Try plotting the Fourier transform of the signal with and without using `fftshift` and see how it looks.
 
 
-### Problems
+## Problems
 
-Recall that the delta function $\delta(x)$ is a curious function with the following properties
+Recall that the delta function $\delta(x)$ is a curious function with the following properties:
 
-$$\delta(x) =
+$$
+\delta(x) =
 \begin{cases}
-    0, &x \ne 0, \\
-    \infty, &x = 0,
-\end{cases}$$
+    0, & x \ne 0, \\
+    \infty, & x = 0,
+\end{cases}
+$$
 
 and
 
-$$\int_{-\infty}^{\infty} \delta(x) dx = 1.$$
+$$
+\int_{-\infty}^{\infty} \delta(x)\, dx = 1.
+$$
 
 ![](/Intro-to-Julia-for-spectroscopy/images/delta_distribution.png)
 The Dirac delta function is actually a distrubution, not a function,
 and distributions are defined by their integration properties or actions on test functions.
 For a function $f(x)$ that is continuous at $x = 0$, the delta function has the property
 
-$$\int_{-\infty}^{\infty} f(x) \delta(x) dx = f(0),$$
+$$
+\int_{-\infty}^{\infty} f(x)\, \delta(x)\, dx = f(0),
+$$
 
 and if it is continuous at $x = a$, then
 
-$$\int_{-\infty}^{\infty} \delta(x - a) f(x) dx = \int_{-\infty}^{\infty} \delta(a - x) f(x) dx = f(a).$$
+$$
+\int_{-\infty}^{\infty} \delta(x - a)\, f(x)\, dx = \int_{-\infty}^{\infty} \delta(a - x)\, f(x)\, dx = f(a).
+$$
 
 Then, the Fourier transform of $\delta(x - a)$ is
 
-$$\int_{-\infty}^{\infty} \delta(x - a) e^{-i x \xi} dx = e^{-i a \xi}.$$
+$$
+\int_{-\infty}^{\infty} \delta(x - a)\, e^{-i x \xi}\, dx = e^{-i a \xi}.
+$$
 
 1. Using the definition of the Dirac delta compute the following:
 
-$$\frac{1}{2} \int_{-\infty}^{\infty} [\delta(x + a) + \delta(x - a)] e^{-ix\xi}dx$$
+$$
+\frac{1}{2} \int_{-\infty}^{\infty} [\delta(x + a) + \delta(x - a)]\, e^{-i x \xi}\, dx
+$$
 
 2. Write down the equation for a damped oscillator in terms of a temporal decay constant and an oscillation frequency and then implement it in code. Then compute its Fourier transform. Plot both curves. What happens to both the time-domain curve and its transform when you change the decay constant?
 

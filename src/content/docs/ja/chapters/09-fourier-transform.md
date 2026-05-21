@@ -88,38 +88,50 @@ julia> fftshift(1:10)
 信号のフーリエ変換を `fftshift` を使った場合と使わない場合でプロットしてみて、見た目を比較してみてください。
 
 
-### 問題
+## 問題
 
 デルタ関数 $\delta(x)$ は、次の性質を持つ興味深い関数です。
 
-$$\delta(x) =
+$$
+\delta(x) =
 \begin{cases}
-    0, &x \ne 0, \\
-    \infty, &x = 0,
-\end{cases}$$
+    0, & x \ne 0, \\
+    \infty, & x = 0,
+\end{cases}
+$$
 
 そして、
 
-$$\int_{-\infty}^{\infty} \delta(x) dx = 1.$$
+$$
+\int_{-\infty}^{\infty} \delta(x)\, dx = 1.
+$$
 
 ![](/Intro-to-Julia-for-spectroscopy/images/delta_distribution.png)
 ディラックのデルタ関数は実際には関数ではなく分布 (distribution) で、
 分布は積分の性質、あるいはテスト関数に対する作用によって定義されます。
 $x = 0$ で連続な関数 $f(x)$ に対して、デルタ関数は次の性質を持ちます。
 
-$$\int_{-\infty}^{\infty} f(x) \delta(x) dx = f(0),$$
+$$
+\int_{-\infty}^{\infty} f(x)\, \delta(x)\, dx = f(0),
+$$
 
 $x = a$ で連続なら、次が成り立ちます。
 
-$$\int_{-\infty}^{\infty} \delta(x - a) f(x) dx = \int_{-\infty}^{\infty} \delta(a - x) f(x) dx = f(a).$$
+$$
+\int_{-\infty}^{\infty} \delta(x - a)\, f(x)\, dx = \int_{-\infty}^{\infty} \delta(a - x)\, f(x)\, dx = f(a).
+$$
 
 そして、$\delta(x - a)$ のフーリエ変換は次のようになります。
 
-$$\int_{-\infty}^{\infty} \delta(x - a) e^{-i x \xi} dx = e^{-i a \xi}.$$
+$$
+\int_{-\infty}^{\infty} \delta(x - a)\, e^{-i x \xi}\, dx = e^{-i a \xi}.
+$$
 
 1. ディラックのデルタの定義を使って、次を計算してみましょう。
 
-$$\frac{1}{2} \int_{-\infty}^{\infty} [\delta(x + a) + \delta(x - a)] e^{-ix\xi}dx$$
+$$
+\frac{1}{2} \int_{-\infty}^{\infty} [\delta(x + a) + \delta(x - a)]\, e^{-i x \xi}\, dx
+$$
 
 2. 時定数と振動周波数を使って減衰振動子の式を書き、それをコードで実装しましょう。続いてフーリエ変換を計算します。両方の曲線をプロットしてください。時定数を変えたとき、時間領域の曲線とその変換のどちらにも何が起こるでしょうか?
 

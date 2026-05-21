@@ -2,10 +2,9 @@
 title: Introduction
 ---
 
-This tutorial is designed to introduce students to the Julia programming language and its applications in spectroscopy.
-Lessons are more like lecture notes.
-It is intended for students who have never programmed before, or who have only done a little programming in another language. The goal is to teach the basics of programming in Julia, and to provide examples of how to use Julia for data analysis and visualization in spectroscopy.
-It is not intended to be a comprehensive introduction to Julia, but rather a starting point for students to learn how to use Julia for their own research projects in spectroscopy.
+This tutorial introduces the Julia programming language and its applications in spectroscopy.
+It is written for readers who have never programmed before, or who have only programmed a little in another language. The goal is to teach the basics of programming in Julia and to give worked examples of using Julia for data analysis and visualization in spectroscopy.
+It is not meant to be a comprehensive introduction to Julia, but rather a starting point for using Julia in your own research projects in spectroscopy.
 
 ## Getting started
 
@@ -62,13 +61,9 @@ Briefly explain [the command palette](https://code.visualstudio.com/docs/getstar
 
 
 ## Files, folders, and environments
-The concept of files and folders are reviewed and then a tour of Visual Studio Code is given.
-Students create a project folder to store their tutorial files and future experiment code.
-This ensures consistent data storage and analysis practices in the lab.
-We also cover environments and how to create a new environment for each project.
-This is important for reproducibility and to avoid package conflicts.
-
-To the instructor: Do not show your actual experiments folder, unless it is *very* well organized (to avoid confusion). Follow along with these instructions with the students.
+This section reviews files and folders and gives a short tour of Visual Studio Code.
+You will create a project folder to hold the tutorial code and any future experiment code, which keeps data storage and analysis practices consistent over time.
+We also cover Julia environments and how to create a new one for each project — important for reproducibility and avoiding package conflicts.
 
 
 ### Files and folders on a computer
@@ -80,9 +75,9 @@ Follow these steps to create a project folder for your tutorials and experiments
 
 1. On macOS, go to `~/Documents/` and create a new folder called `projects`. On Windows go to `C:\Users\<username>\Documents\` and create a new folder called `projects`. This is where you will store your projects while you are in the lab.
 
-2. Inside of `projects`, create a new folder called `tutorials`. This is where you will store code for these tutorials. (You make other folders for you main experiments later in `projects`.)
+2. Inside of `projects`, create a new folder called `tutorials`. This is where you will store code for these tutorials. (You can make other folders for your main experiments later in `projects`.)
 
-3. Open Visual Studio Code and open the `tutorials` folder that you just created (click File, then Open Folder... from the menu). This folder will be used for all tutorials, including analysis in the optics tutorials later.
+3. Open Visual Studio Code and open the `tutorials` folder that you just created (click File, then Open Folder... from the menu).
 
 4. Click on the new folder icon and make a new folder called `programming` or something similar. This is where you will store code and homework for the programming tutorial.
 
@@ -97,19 +92,26 @@ projects
         └── variables.jl
 ```
 
-In the future, you might have a couple of projects and you might have a structure like this:
+In the future, you might have a couple of projects and a structure like this:
 
 ```
 projects
 ├── tutorials
 │   └── programming
-│       └── variables.jl
+│       ├── variables.jl
+│       └── plotting.jl
 └── experiments
     ├── FTIR
-    │   ├── data
+    │   ├── data/
+    │   ├── figures/
     │   └── analysis.jl
-    └── NMR
-        ├── data
+    ├── raman
+    │   ├── data/
+    │   ├── notes.md
+    │   └── analysis.jl
+    └── pump_probe
+        ├── data/
+        ├── figures/
         └── analysis.jl
 ```
 
@@ -127,9 +129,9 @@ We will create an environment for the `tutorials` folder that you created previo
 When you start your experiments, you will create a new environment in a different folder for each project.
 
 First look in the bottom left corner of the Visual Studio Code window.
-Notice that it say "Julia env: v1.11" or something similar.
+Notice that it say "Julia env: v1.12" or something similar.
 The first part, "Julia env:", indicates that you are in a Julia environment.
-The second part, "v1.11", indicates the version of Julia you are using.
+The second part, "v1.12", indicates the version of Julia you are using.
 This means that you are using the default Julia environment, which is the global environment.
 In general, we don't want to use the global environment for our projects.
 Sometimes I use the global environment for quick tests, but I always create a new folder and environment for my projects.
@@ -141,7 +143,7 @@ Then let's create a new environment here, following these steps:
 ![](/Intro-to-Julia-for-spectroscopy/images/command_palette.png)
 
 2. In the REPL, type `]` to enter the package manager mode.
-Notice that here too, it says `(@v1.11) pkg>` or similar, indicating that you are in the global environment.
+Notice that here too, it says `(@v1.12) pkg>` or similar, indicating that you are in the global environment.
 3. Type `activate .` to create a new environment in the current folder. (The `.` means the current folder.)
 Now it says `(tutorials) pkg>`, indicating that you are in the new environment.
 4. Now let's add the plotting package that we will use later, `GLMakie` and `CairoMakie`. I will explain what these are when we start to use them.
@@ -154,7 +156,7 @@ This is important for reproducibility and sharing code with other researchers.
 In the future, when you open this folder in Visual Studio Code, it will automatically activate this environment.
 Let's try that now.
 Close and reopen VS Code.
-The environment indicator in the lower left will say "Julia env: tutorials" instead of "Julia env: v1.11".
+The environment indicator in the lower left will say "Julia env: tutorials" instead of "Julia env: v1.12".
 If it does not, click on the environment indicator and select the `tutorials` environment from the drop down list that appears at the top of the VS Code window.
 
 When Makie and its dependencies have finished installing and compiling, you can type `status` or `st` in the package manager mode to see the list of packages that are installed in this environment.

@@ -44,7 +44,6 @@ export default defineConfig({
             { slug: 'chapters/07-plotting' },
             { slug: 'chapters/08-fitting' },
             { slug: 'chapters/09-fourier-transform' },
-            { slug: 'chapters/10-transfer-matrix' },
           ],
         },
       ],

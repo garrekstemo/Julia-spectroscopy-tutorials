@@ -20,7 +20,9 @@ This vector of "best fit" parameters is what we are trying to find.
 How well the model fits the data is measured by the difference between the observed values $y_i$ and the model values $f(p, x_i)$ for a given $p$.
 The set of differences is called the residuals, and are defined by
 
-$$r_i = y_i - f(p, x_i)$$
+$$
+r_i = y_i - f(p, x_i)
+$$
 
 The least squares method then squares the residuals and sums them up.
 Minimizing this sum of the squared residuals will return the optimal parameters values $p$.
