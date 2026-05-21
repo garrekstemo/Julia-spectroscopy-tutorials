@@ -37,7 +37,7 @@ This function is also known as the cost or [loss function](https://en.wikipedia.
 The example below shows a linear fit to randomly generated data, together with the residuals shown as lines between the data points and the fitted line.
 The line representing the initial guess parameters is shown as a dashed line.
 
-![](/Intro-to-Julia-for-spectroscopy/images/linear_fit.png)
+![](/images/linear_fit.png)
 
 
 ## Example: Lorentzian peak
@@ -62,7 +62,7 @@ x0 = 510
 You should end up with something like below, depending on how many data points you create and how much noise you add to the data.
 Remember to include an error estimate for each parameter.
 
-![](/Intro-to-Julia-for-spectroscopy/images/lorentzian_fit_residuals.png)
+![](/images/lorentzian_fit_residuals.png)
 
 It is useful to plot the residuals of the fit to see how well the results fit the data.
 There should not be any systematic structure in the residuals.
@@ -135,7 +135,7 @@ sol = solve(prob)
 
 The best-fit parameters are retrieved with `coef(sol)`, and their standard errors with `stderror(sol)`.
 
-![](/Intro-to-Julia-for-spectroscopy/images/polariton_fit.png)
+![](/images/polariton_fit.png)
 
 
 ## Problems

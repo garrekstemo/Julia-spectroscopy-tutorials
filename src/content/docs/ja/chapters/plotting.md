@@ -15,7 +15,7 @@ Makie.jl は使いやすくて高品質なビジュアライゼーションを�
 Makie の [Getting Started](https://docs.makie.org/stable/tutorials/getting-started) チュートリアルは非常によくできていて、正直なところ私もこれ以上の入門は書けません。
 続ける前に、まずは目を通しておいてください。
 
-Makie は[はじめに](./01-introduction/) でインストール済みですが、念のため簡単におさらいします。
+Makie は[はじめに](./introduction/) でインストール済みですが、念のため簡単におさらいします。
 
 
 ### Makie のインストール
@@ -27,7 +27,7 @@ Makie には用途に応じて 3 つのバックエンドがあります。
 用途に応じてどれかひとつを選びます。
 
 ここでは GLMakie を使いますが、CairoMakie でも構いません。
-[はじめに](./01-introduction/) で扱ったように、Julia のパッケージマネージャでパッケージをインストールします。
+[はじめに](./introduction/) で扱ったように、Julia のパッケージマネージャでパッケージをインストールします。
 
 1. `tutorial` フォルダを VS Code で開きます。
 2. コマンドパレット (macOS では `cmd+shift+p`、Windows では `ctrl+shift+p`) を開き、`Julia: Start REPL` を選んで Julia REPL を起動します。
@@ -75,7 +75,7 @@ f = Figure()
 ax = Axis(f[1, 1], title = "First Axis")
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/one_axis.png)
+![](/images/one_axis.png)
 
 Axis が Figure 全体を占めていることがわかります。
 次は、最初の行・2 列目に別の `Axis` を追加してみましょう。
@@ -86,7 +86,7 @@ ax = Axis(f[1, 1])
 ax2 = Axis(f[1, 2])
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/two_axes.png)
+![](/images/two_axes.png)
 最初の Axis は、2 つ目の Axis に合わせて自動的にリサイズされます。
 `Axis` は複数の行や列にまたがって配置することもできます。
 
@@ -97,7 +97,7 @@ ax2 = Axis(f[1, 2])
 ax3 = Axis(f[2, 1:2])
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/three_axes.png)
+![](/images/three_axes.png)
 
 
 これは Makie の強力なレイアウトシステムのごく基本的な部分にすぎません。
@@ -162,7 +162,7 @@ lines!(
 axislegend(position = :rb)
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/damped_sine_wave.png)
+![](/images/damped_sine_wave.png)
 
 
 プロットが `Axis` の定義の後に来る場合、そのプロットは `Axis` の上に描画され、`ax` 変数を引数として渡す必要はありません。
@@ -227,7 +227,7 @@ axislegend(ax)
 f
 ```
 
-![](/Intro-to-Julia-for-spectroscopy/images/cascading_layout.png)
+![](/images/cascading_layout.png)
 
 
 ## プロットを操作する

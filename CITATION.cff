@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: Julia for Spectroscopy
+message: "If you use this tutorial in teaching or research, please cite it as below."
+type: software
+authors:
+  - family-names: Stemo
+    given-names: Garrek
+url: "https://juliaspectroscopy.org"
+repository-code: "https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy"
+license: MIT
+keywords:
+  - julia
+  - spectroscopy
+  - tutorial
+  - data analysis
+  - education

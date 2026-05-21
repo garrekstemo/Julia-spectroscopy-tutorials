@@ -2,7 +2,7 @@
 
 A self-paced introduction to the Julia programming language for spectroscopy data analysis. No prior programming experience required.
 
-**Read it online:** [garrekstemo.github.io/Intro-to-Julia-for-spectroscopy](https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/) (English and Japanese)
+**Read it online:** [juliaspectroscopy.org](https://juliaspectroscopy.org) (English and Japanese)
 
 ## Repository contents
 
@@ -22,4 +22,12 @@ npm install
 npm run dev
 ```
 
-Then visit `http://localhost:4321/Intro-to-Julia-for-spectroscopy/`.
+Then visit `http://localhost:4321/`.
+
+## Citation
+
+If you use this tutorial in teaching or research, see [`CITATION.cff`](./CITATION.cff) at the repository root for the recommended citation format.
+
+## License
+
+Released under the [MIT License](./LICENSE). You are free to share, adapt, and reuse this material with attribution.

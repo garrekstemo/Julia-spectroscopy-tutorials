@@ -9,21 +9,21 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Regular.otf") format("opentype");
+  src: url("/fonts/Libre-Baskerville/LibreBaskerville-Regular.otf") format("opentype");
 }
 @font-face {
   font-family: "Libre Baskerville";
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Italic.otf") format("opentype");
+  src: url("/fonts/Libre-Baskerville/LibreBaskerville-Italic.otf") format("opentype");
 }
 @font-face {
   font-family: "Libre Baskerville";
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Bold.otf") format("opentype");
+  src: url("/fonts/Libre-Baskerville/LibreBaskerville-Bold.otf") format("opentype");
 }
 
 @font-face {
@@ -31,28 +31,28 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Regular.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime/CourierPrime-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Courier Prime";
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Italic.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime/CourierPrime-Italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Courier Prime";
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Bold.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime/CourierPrime-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Courier Prime";
   font-weight: 700;
   font-style: italic;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-BoldItalic.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime/CourierPrime-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
@@ -60,14 +60,14 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Regular.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime-Code/CourierPrimeCode-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Courier Prime Code";
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Italic.ttf") format("truetype");
+  src: url("/fonts/Courier-Prime-Code/CourierPrimeCode-Italic.ttf") format("truetype");
 }
 /* Courier Prime Code has no Bold variant upstream — bold weights fall through
    to the next family in --sl-font-system-mono (Courier Prime, which has Bold). */

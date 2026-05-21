@@ -16,7 +16,7 @@ Consider a sine wave at 60 Hz and its first harmonic at 120 Hz at half the ampli
 The time-domain signal may look complicated, as shown in the figure below, the Fourier transform of the signal will show two distinct peaks at 60 Hz and 120 Hz.
 This simple example demonstrates the power of the Fourier transform to decompose a complex signal into its constituent frequencies, and we will use it to analyze much more complex signals arising from interactions between light and matter.
 
-![](/Intro-to-Julia-for-spectroscopy/images/FFT_two_notes.png)
+![](/images/FFT_two_notes.png)
 
 Let's implement this example in code.
 First we import the required packages, GLMakie for visualization and FFTW for the Fourier transform
@@ -106,7 +106,7 @@ $$
 \int_{-\infty}^{\infty} \delta(x)\, dx = 1.
 $$
 
-![](/Intro-to-Julia-for-spectroscopy/images/delta_distribution.png)
+![](/images/delta_distribution.png)
 The Dirac delta function is actually a distrubution, not a function,
 and distributions are defined by their integration properties or actions on test functions.
 For a function $f(x)$ that is continuous at $x = 0$, the delta function has the property
@@ -155,6 +155,6 @@ The goal is to extract the lifetime and frequency of the oscillations.
 
 Zhu, *et al*. Quantum Phase Synchronization via Exciton-Vibrational Energy Dissipation Sustains Long-Lived Coherence in Photosynthetic Antennas. Nat Commun 2024, 15 (1), 3171. https://doi.org/10.1038/s41467-024-47560-6.
 
-8. Using a single exponential decay function, fit the data to extract the energy relaxation time (use `NonlinearCurveFitProblem` and `solve` from the [fitting chapter](./08-fitting/)). Plot the data and the fit.
+8. Using a single exponential decay function, fit the data to extract the energy relaxation time (use `NonlinearCurveFitProblem` and `solve` from the [fitting chapter](./fitting/)). Plot the data and the fit.
 
 9. Now subtract the fit from the data and compute the Fourier transform of the residuals. Plot the Fourier transform and identify the oscillation frequency. What is the physical meaning of this frequency?

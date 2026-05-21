@@ -27,7 +27,7 @@ There are three backends for Makie for different use cases:
 You will select one of these depending on your needs.
 
 Here we will use GLMakie, but you can also use CairoMakie.
-Recall from the [introduction](./01-introduction/) that you can install packages in Julia using the package manager.
+Recall from the [introduction](./introduction/) that you can install packages in Julia using the package manager.
 
 1. Open your `tutorial` folder in VS Code.
 2. Start the Julia REPL from the command palette (`cmd+shift+p` on macOS or `ctrl+shift+p` on Windows) by typing `Julia: Start REPL`.
@@ -76,7 +76,7 @@ f = Figure()
 ax = Axis(f[1, 1], title = "First Axis")
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/one_axis.png)
+![](/images/one_axis.png)
 
 You can see that it takes up the entire figure.
 Let's make another `Axis` in the first row and second column of the figure.
@@ -87,7 +87,7 @@ ax = Axis(f[1, 1])
 ax2 = Axis(f[1, 2])
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/two_axes.png)
+![](/images/two_axes.png)
 The first axis resizes to accommodate the second axis.
 An `Axis` can span multiple rows and columns.
 
@@ -98,7 +98,7 @@ ax2 = Axis(f[1, 2])
 ax3 = Axis(f[2, 1:2])
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/three_axes.png)
+![](/images/three_axes.png)
 
 
 These are just the basics of the powerful layout system in Makie.
@@ -163,7 +163,7 @@ lines!(
 axislegend(position = :rb)
 f
 ```
-![](/Intro-to-Julia-for-spectroscopy/images/damped_sine_wave.png)
+![](/images/damped_sine_wave.png)
 
 
 If the plot comes after the `Axis` definition, it will be drawn on top of the `Axis` and you don't need to input the `ax` variable.
@@ -228,7 +228,7 @@ axislegend(ax)
 f
 ```
 
-![](/Intro-to-Julia-for-spectroscopy/images/cascading_layout.png)
+![](/images/cascading_layout.png)
 
 
 ## Navigating a plot

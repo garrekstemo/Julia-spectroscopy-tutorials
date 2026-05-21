@@ -16,7 +16,7 @@ title: 9. フーリエ変換
 下の図のように時間領域の信号は複雑に見えますが、この信号のフーリエ変換を取ると、60 Hz と 120 Hz に明瞭な 2 つのピークが現れます。
 この簡単な例は、複雑な信号をその構成周波数に分解するというフーリエ変換の威力を示しています。光と物質の相互作用から生じるはるかに複雑な信号の解析にも、この手法を使います。
 
-![](/Intro-to-Julia-for-spectroscopy/images/FFT_two_notes.png)
+![](/images/FFT_two_notes.png)
 
 これをコードで実装しましょう。
 まず必要なパッケージをインポートします。可視化用の GLMakie とフーリエ変換用の FFTW です。
@@ -106,7 +106,7 @@ $$
 \int_{-\infty}^{\infty} \delta(x)\, dx = 1.
 $$
 
-![](/Intro-to-Julia-for-spectroscopy/images/delta_distribution.png)
+![](/images/delta_distribution.png)
 ディラックのデルタ関数は実際には関数ではなく分布 (distribution) で、
 分布は積分の性質、あるいはテスト関数に対する作用によって定義されます。
 $x = 0$ で連続な関数 $f(x)$ に対して、デルタ関数は次の性質を持ちます。
@@ -155,6 +155,6 @@ $$
 
 Zhu, *et al*. Quantum Phase Synchronization via Exciton-Vibrational Energy Dissipation Sustains Long-Lived Coherence in Photosynthetic Antennas. Nat Commun 2024, 15 (1), 3171. https://doi.org/10.1038/s41467-024-47560-6.
 
-8. 単一指数減衰関数を使ってデータをフィッティングし、エネルギー緩和時間を抽出してください ([フィッティングの章](./08-fitting/)の `NonlinearCurveFitProblem` と `solve` を使います)。データとフィット結果をプロットしてください。
+8. 単一指数減衰関数を使ってデータをフィッティングし、エネルギー緩和時間を抽出してください ([フィッティングの章](./fitting/)の `NonlinearCurveFitProblem` と `solve` を使います)。データとフィット結果をプロットしてください。
 
 9. データからフィット結果を引き算し、残差のフーリエ変換を計算してください。フーリエ変換をプロットし、振動の周波数を特定してください。この周波数の物理的な意味は何でしょうか?

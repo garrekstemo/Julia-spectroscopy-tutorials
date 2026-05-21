@@ -4,8 +4,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://garrekstemo.github.io',
-  base: '/Intro-to-Julia-for-spectroscopy',
+  site: 'https://juliaspectroscopy.org',
   devToolbar: { enabled: false },
   redirects: {
     '/': '/en/',
@@ -19,7 +18,7 @@ export default defineConfig({
       expressiveCode: {
         themes: ['min-light', 'min-dark'],
       },
-      title: 'Intro to Julia for Spectroscopy',
+      title: 'Julia for Spectroscopy',
       defaultLocale: 'en',
       locales: {
         en: { label: 'English' },
@@ -32,18 +31,24 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'Chapters',
-          translations: { ja: '章' },
+          label: 'Fundamentals',
+          translations: { ja: '基礎' },
           items: [
-            { slug: 'chapters/01-introduction' },
-            { slug: 'chapters/02-variables-operators-types' },
-            { slug: 'chapters/03-conditionals' },
-            { slug: 'chapters/04-iteration' },
-            { slug: 'chapters/05-functions' },
-            { slug: 'chapters/06-arrays' },
-            { slug: 'chapters/07-plotting' },
-            { slug: 'chapters/08-fitting' },
-            { slug: 'chapters/09-fourier-transform' },
+            { slug: 'chapters/introduction' },
+            { slug: 'chapters/variables-operators-types' },
+            { slug: 'chapters/conditionals' },
+            { slug: 'chapters/iteration' },
+            { slug: 'chapters/functions' },
+          ],
+        },
+        {
+          label: 'Data analysis',
+          translations: { ja: 'データ解析' },
+          items: [
+            { slug: 'chapters/arrays' },
+            { slug: 'chapters/plotting' },
+            { slug: 'chapters/fitting' },
+            { slug: 'chapters/fourier-transform' },
           ],
         },
       ],
