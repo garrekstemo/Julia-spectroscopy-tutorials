@@ -15,7 +15,7 @@ Makie.jl は使いやすくて高品質なビジュアライゼーションを�
 Makie の [Getting Started](https://docs.makie.org/stable/tutorials/getting-started) チュートリアルは非常によくできていて、正直なところ私もこれ以上の入門は書けません。
 続ける前に、まずは目を通しておいてください。
 
-Makie は第 1 章でインストール済みですが、念のため簡単におさらいします。
+Makie は[はじめに](./01-introduction/) でインストール済みですが、念のため簡単におさらいします。
 
 
 ### Makie のインストール
@@ -27,11 +27,11 @@ Makie には用途に応じて 3 つのバックエンドがあります。
 用途に応じてどれかひとつを選びます。
 
 ここでは GLMakie を使いますが、CairoMakie でも構いません。
-第 1 章で扱ったように、Julia のパッケージマネージャでパッケージをインストールします。
+[はじめに](./01-introduction/) で扱ったように、Julia のパッケージマネージャでパッケージをインストールします。
 
 1. `tutorial` フォルダを VS Code で開きます。
 2. コマンドパレット (macOS では `cmd+shift+p`、Windows では `ctrl+shift+p`) を開き、`Julia: Start REPL` を選んで Julia REPL を起動します。
-2. REPL で `]` を入力してパッケージマネージャに入ります。(バックスペースでパッケージマネージャを抜けて Julia REPL に戻れます。)
+3. REPL で `]` を入力してパッケージマネージャに入ります。(バックスペースでパッケージマネージャを抜けて Julia REPL に戻れます。)
 4. `add GLMakie` (または `add CairoMakie`) と入力してインストールします。
 
 プロットを始める前に、`tutorial` フォルダの中に `plotting` などの名前で新しいフォルダを作りましょう。

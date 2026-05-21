@@ -1,15 +1,19 @@
-# Introduction to Julia for Spectroscopy
+# Julia for Spectroscopy
 
-A short course introducing Julia for spectroscopy data analysis, intended for students with little or no programming background.
+A self-paced introduction to the Julia programming language for spectroscopy data analysis. No prior programming experience required.
 
-**Read the course online:** [garrekstemo.github.io/Intro-to-Julia-for-spectroscopy](https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/) (English and Japanese)
+**Read it online:** [garrekstemo.github.io/Intro-to-Julia-for-spectroscopy](https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/) (English and Japanese)
 
 ## Repository contents
 
 - `src/content/docs/` — chapter markdown (EN under `en/`, JA under `ja/`)
 - `public/images/` — figures used in the chapters
-- `data/` — data files for the exercises
+- `data/` — data files for the worked examples and problems
 - `generate_images/` — Julia scripts that produce the figures
+
+## Solutions
+
+Worked solutions to the chapter problems live in a separate repository: [Intro-to-Julia-for-Spectroscopy-Solutions](https://github.com/garrekstemo/Intro-to-Julia-for-Spectroscopy-Solutions).
 
 ## Running the site locally
 
@@ -19,7 +23,3 @@ npm run dev
 ```
 
 Then visit `http://localhost:4321/Intro-to-Julia-for-spectroscopy/`.
-
-## Related
-
-- [Optics Tutorials](https://github.com/garrekstemo/Optics-Tutorials) — the experimental tutorials this course pairs with

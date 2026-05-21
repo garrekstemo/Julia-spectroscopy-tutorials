@@ -155,6 +155,6 @@ The goal is to extract the lifetime and frequency of the oscillations.
 
 Zhu, *et al*. Quantum Phase Synchronization via Exciton-Vibrational Energy Dissipation Sustains Long-Lived Coherence in Photosynthetic Antennas. Nat Commun 2024, 15 (1), 3171. https://doi.org/10.1038/s41467-024-47560-6.
 
-8. Using a single exponential decay function, fit the data to extract the energy relaxation time (use `NonlinearCurveFitProblem` and `solve` from [Chapter 8](./08-fitting/)). Plot the data and the fit.
+8. Using a single exponential decay function, fit the data to extract the energy relaxation time (use `NonlinearCurveFitProblem` and `solve` from the [fitting chapter](./08-fitting/)). Plot the data and the fit.
 
 9. Now subtract the fit from the data and compute the Fourier transform of the residuals. Plot the Fourier transform and identify the oscillation frequency. What is the physical meaning of this frequency?

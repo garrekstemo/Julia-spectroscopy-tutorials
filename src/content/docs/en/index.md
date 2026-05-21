@@ -4,7 +4,7 @@ title: Intro to Julia for Spectroscopy
 
 An introduction to the Julia programming language for spectroscopy data analysis. It assumes no prior programming experience, but readers who have programmed a little in another language should also find it useful.
 
-Chapters 1–6 cover programming fundamentals; Chapters 7–9 cover data analysis and visualization.
+The early chapters cover programming fundamentals; the later chapters cover data analysis and visualization.
 
 ## How to use this tutorial
 

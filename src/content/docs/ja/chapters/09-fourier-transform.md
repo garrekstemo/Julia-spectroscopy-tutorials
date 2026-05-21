@@ -155,6 +155,6 @@ $$
 
 Zhu, *et al*. Quantum Phase Synchronization via Exciton-Vibrational Energy Dissipation Sustains Long-Lived Coherence in Photosynthetic Antennas. Nat Commun 2024, 15 (1), 3171. https://doi.org/10.1038/s41467-024-47560-6.
 
-8. 単一指数減衰関数を使ってデータをフィッティングし、エネルギー緩和時間を抽出してください (第 8 章の `NonlinearCurveFitProblem` と `solve` を使います)。データとフィット結果をプロットしてください。
+8. 単一指数減衰関数を使ってデータをフィッティングし、エネルギー緩和時間を抽出してください ([フィッティングの章](./08-fitting/)の `NonlinearCurveFitProblem` と `solve` を使います)。データとフィット結果をプロットしてください。
 
 9. データからフィット結果を引き算し、残差のフーリエ変換を計算してください。フーリエ変換をプロットし、振動の周波数を特定してください。この周波数の物理的な意味は何でしょうか?
