@@ -19,6 +19,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Intro to Julia for Spectroscopy',
+      defaultLocale: 'en',
+      locales: {
+        en: { label: 'English' },
+        ja: { label: '日本語' },
+      },
       customCss: ['./src/styles/custom.css'],
       components: {
         SiteTitle: './src/components/SiteTitle.astro',
