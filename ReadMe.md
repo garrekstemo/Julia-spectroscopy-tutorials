@@ -30,4 +30,4 @@ If you use this tutorial in teaching or research, see [`CITATION.cff`](./CITATIO
 
 ## License
 
-Released under the [MIT License](./LICENSE). You are free to share, adapt, and reuse this material with attribution.
+Released under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE). You are free to share and adapt this material — including for commercial use — provided you give appropriate credit.

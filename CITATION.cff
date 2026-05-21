@@ -7,7 +7,7 @@ authors:
     given-names: Garrek
 url: "https://juliaspectroscopy.org"
 repository-code: "https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy"
-license: MIT
+license: CC-BY-4.0
 keywords:
   - julia
   - spectroscopy
