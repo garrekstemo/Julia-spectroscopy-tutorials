@@ -8,7 +8,7 @@ The early chapters cover programming fundamentals; the later chapters cover data
 
 ## How to use this tutorial
 
-Each chapter has inline **Exercises** (short — work them as you read) and end-of-chapter **Problems** (longer, sometimes building functions you'll reuse in later chapters). The point is to write code, not just read it. Solutions live in the [solutions repository](https://github.com/garrekstemo/Intro-to-Julia-for-spectroscopy-solutions).
+Each chapter has inline **Exercises** (short — work them as you read) and end-of-chapter **Problems** (longer, sometimes building functions you'll reuse in later chapters). The point is to write code, not just read it. Many problems include `@test` blocks you can run to check your work. For full reference solutions — useful for instructors adapting this material — please get in touch at [garrekstemo@icloud.com](mailto:garrekstemo@icloud.com).
 
 ## Source code and exercise data
 

@@ -13,7 +13,7 @@ A self-paced introduction to the Julia programming language for spectroscopy dat
 
 ## Solutions
 
-Worked solutions to the chapter problems live in a separate repository: [Intro-to-Julia-for-Spectroscopy-Solutions](https://github.com/garrekstemo/Intro-to-Julia-for-Spectroscopy-Solutions).
+Many problems include `@test` blocks you can run to check your work. For full reference solutions — useful for instructors adapting this material — please get in touch at [garrekstemo@icloud.com](mailto:garrekstemo@icloud.com).
 
 ## Running the site locally
 
