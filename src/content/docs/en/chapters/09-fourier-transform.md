@@ -1,5 +1,5 @@
 ---
-title: Fourier transform
+title: 9. Fourier transform
 ---
 
 Every signal has a spectrum that can be analyzed in the time domain or the frequency domain. Alternatively, you can measure in the spatial domain or spatial frequency domain. The Fourier transform is a mathematical operation that converts a signal from the time domain to the frequency domain.

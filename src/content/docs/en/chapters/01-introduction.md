@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: 1. Introduction
 ---
 
 This tutorial introduces the Julia programming language and its applications in spectroscopy.

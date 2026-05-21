@@ -1,5 +1,5 @@
 ---
-title: Fitting
+title: 8. Fitting
 ---
 
 In this chapter we will discuss the basic principles of fitting a model to data using the [least squares method](https://en.wikipedia.org/wiki/Least_squares).

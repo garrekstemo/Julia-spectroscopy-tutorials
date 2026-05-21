@@ -1,5 +1,5 @@
 ---
-title: フィッティング
+title: 8. フィッティング
 ---
 
 この章では、[最小二乗法 (least squares)](https://en.wikipedia.org/wiki/Least_squares) を使ってデータにモデルをフィッティングする際の基本原理を扱います。

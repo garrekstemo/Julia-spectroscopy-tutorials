@@ -1,5 +1,5 @@
 ---
-title: Arrays
+title: 6. Arrays
 ---
 
 Arrays are a collection of elements usually of the same type and usually stored in contiguous memory locations.

@@ -1,5 +1,5 @@
 ---
-title: Variables, operators, and types
+title: 2. Variables, operators, and types
 ---
 
 Open the REPL (the command line interface for Julia) by typing `julia` in the terminal.

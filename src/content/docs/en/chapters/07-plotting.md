@@ -1,5 +1,5 @@
 ---
-title: Plotting
+title: 7. Plotting
 ---
 
 All of the tools we have used so far have been part of the Julia standard library.

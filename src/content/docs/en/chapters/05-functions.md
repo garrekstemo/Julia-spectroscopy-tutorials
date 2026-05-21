@@ -1,5 +1,5 @@
 ---
-title: Functions
+title: 5. Functions
 ---
 
 Functions are used to organize code and make it reusable.
@@ -248,7 +248,7 @@ $$
     L(x) = \frac{A}{1 + \left(\frac{x - x_0}{\Gamma/2}\right)^2}
     $$
 
-    The order of arguments — parameters first, independent variable second — matches the convention used by the CurveFit package in Chapter 8.
+    The order of arguments — parameters first, independent variable second — matches the convention used by the CurveFit package.
 
     ```julia
     lorentzian(p, x) = # your code here
@@ -288,5 +288,3 @@ $$
     @test pseudo_voigt([1.0, 0.0, 2.0, 0.0], 0.0) ≈ 1.0  # pure Gaussian
     @test pseudo_voigt([1.0, 0.0, 2.0, 0.5], 1.0) ≈ 0.5  # 50/50 mix at half max
     ```
-
-    Save these three lineshape functions — you will reuse them as model functions in Chapter 8.
