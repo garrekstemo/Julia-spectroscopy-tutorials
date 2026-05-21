@@ -1,4 +1,6 @@
-# はじめに
+---
+title: はじめに
+---
 
 このチュートリアルは、Julia プログラミング言語と分光学への応用を学生に紹介することを目的としています。
 レッスンは講義ノートのような形式になっています。
@@ -137,7 +139,7 @@ Julia ではパッケージマネージャを使って環境を作成・管理�
 まだ開いていなければ、Visual Studio Code で `tutorials` フォルダを開きます。
 そして、以下の手順で新しい環境を作成します。
 1. コマンドパレット (Ctrl+Shift+P) を開き、`Julia: Start REPL` を選んで Visual Studio Code 内で Julia REPL を起動します。
-![](../../images/command_palette.png)
+![](/Intro-to-Julia-for-spectroscopy/images/command_palette.png)
 
 2. REPL で `]` を入力してパッケージマネージャモードに入ります。
 ここでも `(@v1.11) pkg>` のように表示され、グローバル環境にいることがわかります。
@@ -160,7 +162,7 @@ Makie とその依存パッケージのインストールとコンパイルが�
 
 セットアップ後の環境とファイル構造は以下のようになるはずです。
 
-![](../../images/environment_example.png)
+![](/Intro-to-Julia-for-spectroscopy/images/environment_example.png)
 
 
 ### 演習

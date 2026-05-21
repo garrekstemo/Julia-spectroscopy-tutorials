@@ -1,4 +1,6 @@
-# フィッティング
+---
+title: フィッティング
+---
 
 この章では、[最小二乗法 (least squares)](https://en.wikipedia.org/wiki/Least_squares) を使ってデータにモデルをフィッティングする際の基本原理を扱います。
 フィッティングには [CurveFit.jl](https://github.com/SciML/CurveFit.jl) パッケージを使います。
@@ -33,7 +35,7 @@ $$
 下の例は、ランダムに生成したデータに対する線形フィットと、データ点と当てはめ直線の間の線として描画した残差を示しています。
 点線は初期推定パラメータでの直線です。
 
-![](../../images/linear_fit.png)
+![](/Intro-to-Julia-for-spectroscopy/images/linear_fit.png)
 
 
 ## 例: ローレンツ型のピーク
@@ -58,7 +60,7 @@ x0 = 510
 データ点の数や加えるノイズの量によりますが、結果は下のようなものになるはずです。
 各パラメータの誤差推定値も忘れずに報告してください。
 
-![](../../images/lorentzian_fit_residuals.png)
+![](/Intro-to-Julia-for-spectroscopy/images/lorentzian_fit_residuals.png)
 
 フィット結果の残差をプロットして、結果がデータにどれだけ合っているかを確認するのは有用です。
 残差に系統的な構造が見られないことが望ましく、もし見られればモデルがデータをうまく説明できていないことを意味します。
@@ -126,7 +128,7 @@ sol = solve(prob)
 
 ベストフィットパラメータは `coef(sol)`、その標準誤差は `stderror(sol)` で取得します。
 
-![](../../images/polariton_fit.png)
+![](/Intro-to-Julia-for-spectroscopy/images/polariton_fit.png)
 
 
 ## 問題

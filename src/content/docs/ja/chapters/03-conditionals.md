@@ -1,4 +1,6 @@
-# 条件分岐
+---
+title: 条件分岐
+---
 
 ## ブール式
 ブール式 (boolean expression) とは、結果が `true` か `false` のいずれかになる式のことです。

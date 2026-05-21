@@ -1,4 +1,6 @@
-# 変数、演算子、型
+---
+title: 変数、演算子、型
+---
 
 ターミナルで `julia` と入力して REPL (Julia のコマンドラインインタフェース) を開きましょう。
 REPL は Read-Eval-Print Loop の略です。

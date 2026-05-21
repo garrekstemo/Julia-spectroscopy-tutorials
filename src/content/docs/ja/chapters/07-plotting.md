@@ -1,4 +1,6 @@
-# プロット
+---
+title: プロット
+---
 
 ここまで使ってきたツールはすべて Julia の標準ライブラリの一部でした。
 このレッスンでは、初めて外部パッケージを使います。プロットライブラリの [Makie.jl](https://makie.org) です。
@@ -73,7 +75,7 @@ f = Figure()
 ax = Axis(f[1, 1], title = "First Axis")
 f
 ```
-![](../../images/one_axis.png)
+![](/Intro-to-Julia-for-spectroscopy/images/one_axis.png)
 
 Axis が Figure 全体を占めていることがわかります。
 次は、最初の行・2 列目に別の `Axis` を追加してみましょう。
@@ -84,7 +86,7 @@ ax = Axis(f[1, 1])
 ax2 = Axis(f[1, 2])
 f
 ```
-![](../../images/two_axes.png)
+![](/Intro-to-Julia-for-spectroscopy/images/two_axes.png)
 最初の Axis は、2 つ目の Axis に合わせて自動的にリサイズされます。
 `Axis` は複数の行や列にまたがって配置することもできます。
 
@@ -95,7 +97,7 @@ ax2 = Axis(f[1, 2])
 ax3 = Axis(f[2, 1:2])
 f
 ```
-![](../../images/three_axes.png)
+![](/Intro-to-Julia-for-spectroscopy/images/three_axes.png)
 
 
 これは Makie の強力なレイアウトシステムのごく基本的な部分にすぎません。
@@ -160,7 +162,7 @@ lines!(
 axislegend(position = :rb)
 f
 ```
-![](../../images/damped_sine_wave.png)
+![](/Intro-to-Julia-for-spectroscopy/images/damped_sine_wave.png)
 
 
 プロットが `Axis` の定義の後に来る場合、そのプロットは `Axis` の上に描画され、`ax` 変数を引数として渡す必要はありません。
@@ -225,7 +227,7 @@ axislegend(ax)
 f
 ```
 
-![](../../images/cascading_layout.png)
+![](/Intro-to-Julia-for-spectroscopy/images/cascading_layout.png)
 
 
 ## プロットを操作する
