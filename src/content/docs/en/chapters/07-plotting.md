@@ -27,7 +27,7 @@ There are three backends for Makie for different use cases:
 You will select one of these depending on your needs.
 
 Here we will use GLMakie, but you can also use CairoMakie.
-Recall from Chapter 1 that you can install packages in Julia using the package manager.
+Recall from [Chapter 1](./01-introduction/) that you can install packages in Julia using the package manager.
 
 1. Open your `tutorial` folder in VS Code.
 2. Start the Julia REPL from the command palette (`cmd+shift+p` on macOS or `ctrl+shift+p` on Windows) by typing `Julia: Start REPL`.
