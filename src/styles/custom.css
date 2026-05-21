@@ -1,0 +1,139 @@
+/* ------------------------------------------------------------------ */
+/* Font faces                                                          */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Libre Baskerville";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Italic.otf") format("opentype");
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Libre-Baskerville/LibreBaskerville-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime/CourierPrime-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Courier Prime Code";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Courier Prime Code";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Courier Prime Code";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/Intro-to-Julia-for-spectroscopy/fonts/Courier-Prime-Code/CourierPrimeCode-Bold.ttf") format("truetype");
+}
+
+/* ------------------------------------------------------------------ */
+/* Starlight design-token overrides — typography and palette           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Font stacks */
+  --sl-font: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --sl-font-system: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --sl-font-system-mono: "Courier Prime Code", "Courier Prime", "Courier New", Courier, monospace;
+
+  /* Layout */
+  --sl-content-width: 50rem;       /* ~800px content column */
+  --sl-sidebar-width: 11.25rem;    /* 180px sidebar */
+  --sl-text-base: 1rem;
+  --sl-line-height: 1.6;
+}
+
+/* Light theme — lifted from garrek-org/src/css/styles.css */
+:root[data-theme="light"] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-text: #202020;
+  --sl-color-text-accent: #1478d4;
+  --sl-color-white: #000;
+  --sl-color-gray-1: #202020;
+  --sl-color-gray-2: #3b3b3b;
+  --sl-color-gray-3: #4c4c4c;
+  --sl-color-gray-4: #818181;
+  --sl-color-gray-5: #e5e5e5;
+  --sl-color-gray-6: #f8f9fa;
+  --sl-color-accent: #2090e0;
+  --sl-color-accent-low: #e5e5e5;
+  --sl-color-accent-high: #1478d4;
+  --sl-color-hover: #e05a3a;
+  --sl-color-hr: #2090e0;
+  --sl-color-code-bg: #fafafa;
+  --sl-color-code-border: #e5e5e5;
+}
+
+/* Dark theme */
+:root[data-theme="dark"] {
+  --sl-color-bg: #15252b;
+  --sl-color-bg-nav: #15252b;
+  --sl-color-bg-sidebar: #15252b;
+  --sl-color-text: #d0d0d0;
+  --sl-color-text-accent: #5aafe6;
+  --sl-color-white: #d4795a;
+  --sl-color-gray-1: #e8e8e8;
+  --sl-color-gray-2: #d0d0d0;
+  --sl-color-gray-3: #b0b0b0;
+  --sl-color-gray-4: #818181;
+  --sl-color-gray-5: #2a3d44;
+  --sl-color-gray-6: #1e3036;
+  --sl-color-accent: #2090e0;
+  --sl-color-accent-low: #2a3d44;
+  --sl-color-accent-high: #5aafe6;
+  --sl-color-hover: #e8734f;
+  --sl-color-hr: #2090e0;
+  --sl-color-code-bg: #1e3036;
+  --sl-color-code-border: #2a3d44;
+}
