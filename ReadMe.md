@@ -1,65 +1,25 @@
 # Introduction to Julia for Spectroscopy
 
-Tested with Julia version: 1.12
+A short course introducing Julia for spectroscopy data analysis, intended for students with little or no programming background.
 
-This short course is designed to introduce students to the Julia programming language applied to analysis for spectroscopy.
-It is intended for students who have never programmed before, or who have only done a little programming in another language.
-The goal is to teach the basics of programming in Julia, and to provide examples of how to use Julia for data analysis and visualization in spectroscopy.
-These lessons were not originally intended to be comprehensive, but they have evolved into somewhat of a complete introduction to programming.
-They should serve as a starting point for students to learn how to use Julia for their own research projects in experimental spectroscopy.
+**Read the course online:** [garrekstemo.github.io/Intro-to-Julia-for-spectroscopy](https://garrekstemo.github.io/Intro-to-Julia-for-spectroscopy/) (English and Japanese)
 
+## Repository contents
 
-## How this repository is organized
-Lessons include short exercises to be done in class, and longer problems to be done outside of class.
-These are organized by chapter in the `chapters` directory.
-The code that generates the figures are in the `generate_images` directory.
-Answers to the exercises and problems are in a separate repository, which is not included here.
+- `src/content/docs/` — chapter markdown (EN under `en/`, JA under `ja/`)
+- `public/images/` — figures used in the chapters
+- `data/` — data files for the exercises
+- `generate_images/` — Julia scripts that produce the figures
 
-Data needed for the exercises and problems is included in the `data` directory.
+## Running the site locally
 
-The `src` directory contains `make_pdf.sh`, a script that builds a combined PDF from the markdown chapters.
+```bash
+npm install
+npm run dev
+```
 
+Then visit `http://localhost:4321/Intro-to-Julia-for-spectroscopy/`.
 
-## Experiments
-The corresponding experimental tutorials can be found at the [Optics Tutorials](https://github.com/garrekstemo/Optics-Tutorials) repository.
-The computer science tutorial is designed to set students up to analyze data obtained during the optics tutorials.
+## Related
 
-
-## Recommended pace
-
-Chapters 1 through 6 cover programming fundamentals.
-These should ideally be covered in two weeks with about 1 hour of class time per chapter, and 2-3 hours of homework per week.
-
-Chapters 7 through 10 cover data analysis and visualization.
-These can be covered in about a week, maybe a little more depending on how much detail is spent on each chapter.
-
-
-### Example schedule
-
-#### Week 1
-| Day | Chapter | Topics |
-|-----|---------|--------|
-| Monday   | Ch 1: Introduction to Julia | Installation, files, folders, and environments  |
-| Wednesday   | Ch 2: Variables, operators, and types | Variables, basic operations, types, and strings |
-| Friday   | Ch 3: Conditionals | Boolean expressions, comparison operators, logic, and if/else statements |
-
-#### Week 2
-| Day | Chapter | Topics |
-|-----|---------|--------|
-| Monday   | Ch 4: Iteration | While and For loops |
-| Wednesday   | Ch 5: Functions | Built-in functions, user-defined functions, assignment form |
-| Friday   | Ch 6: Arrays | Indexing, slicing, range objects, multi-dimensional arrays, manipulating arrays, broadcasting, and comprehensions |
-
-#### Week 3
-| Day | Chapter | Topics |
-|-----|---------|--------|
-| Monday   | Review Ch 1-6 | Variables, conditionals, iteration, arrays, functions |
-| Wednesday   | Ch 7: Plotting | Basic plotting with Makie.jl |
-| Friday   | Ch 8: Fitting | Least squares fitting with CurveFit.jl — Lorentzian peak and polariton dispersion |
-
-#### Week 4
-| Day | Chapter | Topics |
-|-----|---------|--------|
-| Monday   | Ch 9: Fourier transform | FT basics and Fourier transforms with FFTW.jl |
-| Wednesday  | Ch 10: Transfer matrix | Thin-film optics with TransferMatrix.jl |
-| Friday  | Review Ch 7-10 | Plotting, fitting, Fourier transforms, transfer matrix |
+- [Optics Tutorials](https://github.com/garrekstemo/Optics-Tutorials) — the experimental tutorials this course pairs with
