@@ -109,10 +109,11 @@
   --sl-color-accent: #2090e0;
   --sl-color-accent-low: #e5e5e5;
   --sl-color-accent-high: #1478d4;
-  --sl-color-hover: #e05a3a;
-  --sl-color-hr: #2090e0;
-  --sl-color-code-bg: #fafafa;
-  --sl-color-code-border: #e5e5e5;
+  /* Custom (non-Starlight) tokens — consumed by rules later in this file */
+  --color-link-hover: #e05a3a;
+  --color-hr: #2090e0;
+  --color-code-bg: #fafafa;
+  --color-code-border: #e5e5e5;
 }
 
 /* Dark theme */
@@ -132,8 +133,9 @@
   --sl-color-accent: #2090e0;
   --sl-color-accent-low: #2a3d44;
   --sl-color-accent-high: #5aafe6;
-  --sl-color-hover: #e8734f;
-  --sl-color-hr: #2090e0;
-  --sl-color-code-bg: #1e3036;
-  --sl-color-code-border: #2a3d44;
+  /* Custom (non-Starlight) tokens — consumed by rules later in this file */
+  --color-link-hover: #e8734f;
+  --color-hr: #2090e0;
+  --color-code-bg: #1e3036;
+  --color-code-border: #2a3d44;
 }
